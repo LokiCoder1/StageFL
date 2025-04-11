@@ -1,0 +1,13 @@
+version: '3'
+services:
+  flower-server:
+    image: my-flower-image
+    command: flower-superlink --insecure
+    ports:
+      - "9092:9092"  
+    networks:
+      - flower-network
+
+networks:
+  flower-network:
+    driver: bridge
