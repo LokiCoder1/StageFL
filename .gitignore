@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+#venv c3s
+pytorch_c3s/
+
 # C extensions
 *.so
 

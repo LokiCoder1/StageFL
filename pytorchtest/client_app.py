@@ -5,7 +5,16 @@ import torch
 from flwr.client import ClientApp, NumPyClient
 from flwr.common import Context
 from task import Net, get_weights, load_data, set_weights, test, train
+import wandb
+import os
 
+# wandb integration
+os.environ["WANDB_API_KEY"] ="c9ecc4c3eeac8445768b6c97a55298ddd835562d"
+
+wandb.init(
+    project="CNN_Stage",    
+    entity="damiano-cannizzaro-universit-di-torino",
+)
 
 # Define Flower Client and client_fn
 class FlowerClient(NumPyClient):
@@ -34,6 +43,11 @@ class FlowerClient(NumPyClient):
     def evaluate(self, parameters, config):
         set_weights(self.net, parameters)
         loss, accuracy = test(self.net, self.valloader, self.device)
+        wandb.log({
+            "loss": loss,
+            "epoch": _,
+            "accuracy": accuracy,
+        })
         return loss, len(self.valloader.dataset), {"accuracy": accuracy}
 
 
