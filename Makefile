@@ -8,14 +8,24 @@ IMAGE_NAME = fd-coordinator:5000/pytorch_image
 # start container on both server and client
 # arg 1: 
 start:
+	@if [ -z "$(NODES)"]; then \
+		echo "Please provide the number of nodes to start"; \
+		exit 1; \
+	fi
 	@echo "Starting container $(PROJECT_NAME)_server"
 	$(MAKE) run T=server
+	@docker exec -it pytorch_project_server pip install wandb
 	@echo "Starting containers $(PROJECT_NAME)_client"
 	$(MAKE) ssh NODES=$(NODES) 
 
+	@echo "Starting training..."
+	$(MAKE) train
 
 
-# to Build Docker image: DEPRECATED
+
+
+
+# to Build Docker image
 build:
 	docker build -t $(IMAGE_NAME) .
 
@@ -44,11 +54,21 @@ endif
 # stops and remove container 
 # NODES -> number of active nodes to be stopped
 stop:
+#@if [ -z "$(NODES)"]; then \
+#	docker stop $(PROJECT_NAME)_server; \
+#	docker container prune -f; \
+#	exit 1; \
+#fi	
+#@bash stop_containers.sh $(NODES)
+
 	@if [ -z "$(NODES)"]; then \
-		docker stop $(PROJECT_NAME)_server; \
-		docker container prune -f; \
+		echo "Please provide the number of nodes to stop"; \
 		exit 1; \
-	fi	
+	fi
+	@echo "Stopping container $(PROJECT_NAME)_server"
+	@docker stop $(PROJECT_NAME)_server; 
+	@docker container prune -f; 
+	@echo "Stopping containers $(PROJECT_NAME)_client" 
 	@bash stop_containers.sh $(NODES)
 
 
@@ -61,6 +81,7 @@ clean: stop
 #NODES -> number of nodes to activate
 ssh: 
 	@bash run_nodes.sh $(NODES)
+	@bash wandb_setup.sh $(NODES)
 
 
 #start training
@@ -77,3 +98,5 @@ shell:
 
 
 1:
+	docker exec -it $(PROJECT_NAME)_server sh -c "pip install wandb"
+#	@docker exec -it $(PROJECT_NAME)_server sh -c "wandb login --relogin"

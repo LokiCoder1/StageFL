@@ -12,6 +12,7 @@ dependencies = [
     "flwr-datasets[vision]>=0.3.0",
     "torch==2.5.1",
     "torchvision==0.20.1",
+    "wandb",
   
 ]
 
@@ -27,10 +28,11 @@ clientapp = "client_app:app"
 
 [tool.flwr.app.config]
 # Number of rounds the server will run during training
-num-server-rounds = 5
+num-server-rounds = 2
 fraction-fit = 1
 fraction-evaluate = 1
 local-epochs = 2
+
 
 [tool.flwr.federations]
 default = "test"

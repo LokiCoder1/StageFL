@@ -9,6 +9,16 @@ from flwr_datasets import FederatedDataset
 from flwr_datasets.partitioner import IidPartitioner
 from torch.utils.data import DataLoader
 from torchvision.transforms import Compose, Normalize, ToTensor
+import wandb
+import os
+
+# wandb integration
+os.environ["WANDB_API_KEY"] ="c9ecc4c3eeac8445768b6c97a55298ddd835562d"
+
+wandb.init(
+    project="CNN_Stage",    
+    entity="damiano-cannizzaro-universit-di-torino",
+)
 
 
 class Net(nn.Module):
@@ -79,7 +89,12 @@ def train(net, trainloader, epochs, device):
             loss.backward()
             optimizer.step()
             running_loss += loss.item()
-
+            # Log loss to wandb
+            wandb.log({
+                "loss": loss.item(),
+                "epoch": _,
+                "accuracy": (torch.max(net(images.to(device)), 1)[1] == labels.to(device)).sum().item() / len(labels),
+           })
     avg_trainloss = running_loss / len(trainloader)
     return avg_trainloss
 
@@ -109,3 +124,4 @@ def set_weights(net, parameters):
     params_dict = zip(net.state_dict().keys(), parameters)
     state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
     net.load_state_dict(state_dict, strict=True)
+
