@@ -14,7 +14,7 @@ for i in $(seq 1 $NODES); do
     fi
 
     TOT_NODES=$NODES
-    echo "Connessione a $NODE_NAME...; numero nodi= $TOT_NODES"
+    echo "Connessione a $NODE_NAME...; numero nodi = $TOT_NODES"
     
     ssh -tt $NODE_NAME "cd pytorchtest/ && \
         make run T=client SUPERLINK=fd-coordinator:9092 PARTITION=$PARTITION NUM_PARTITIONS=$TOT_NODES"

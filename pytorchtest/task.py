@@ -9,18 +9,23 @@ from flwr_datasets import FederatedDataset
 from flwr_datasets.partitioner import IidPartitioner
 from torch.utils.data import DataLoader
 from torchvision.transforms import Compose, Normalize, ToTensor
-#import wandb
-#import os
-#
-## wandb integration
-#os.environ["WANDB_API_KEY"] ="c9ecc4c3eeac8445768b6c97a55298ddd835562d"
-#
-#wandb.init(
-#    project="CNN_Stage",    
-#    entity="damiano-cannizzaro-universit-di-torino",
-#)
-#
+import wandb
+import time
+import os
 
+
+os.environ["WANDB_API_KEY"] ="c9ecc4c3eeac8445768b6c97a55298ddd835562d"
+
+group_name = "experiment-" + time.strftime("%Y%m%d-%H%M")
+run_name = "client-" + wandb.util.generate_id()
+
+wandb.init(
+    project="CNN_Stage",    
+    entity="damiano-cannizzaro-universit-di-torino",
+    group = group_name,
+    name = run_name,
+    
+)
 class Net(nn.Module):
     """Model (simple CNN adapted from 'PyTorch: A 60 Minute Blitz')"""
 
@@ -90,11 +95,11 @@ def train(net, trainloader, epochs, device):
             optimizer.step()
             running_loss += loss.item()
             # Log loss to wandb
-       #     wandb.log({
-       #         "loss": loss.item(),
-       #         "epoch": _,
-       #         "accuracy": (torch.max(net(images.to(device)), 1)[1] == labels.to(device)).sum().item() / len(labels),
-       # })
+            wandb.log({
+                "loss": loss.item(),
+                "epoch": _,
+                "accuracy": (torch.max(net(images.to(device)), 1)[1] == labels.to(device)).sum().item() / len(labels),
+        })
     avg_trainloss = running_loss / len(trainloader)
     return avg_trainloss
 

@@ -12,8 +12,5 @@ for i in $(seq 1 $NODES); do
         NODE_NAME="fd-$PARTITION"
     fi
     echo "Connessione a wandb..."
-    ssh -tt $NODE_NAME  "
-        docker exec -it pytorch_project_client sh -c \"pip install wandb\" && \
-        docker exec -it pytorch_project_client sh -c \"wandb login $WANDB_API_KEY\"
-    "
+    ssh -tt $NODE_NAME  "docker exec -it pytorch_project_client sh -c \"wandb login $WANDB_API_KEY\""
 done
