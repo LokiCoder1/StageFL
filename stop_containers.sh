@@ -7,7 +7,7 @@ T="client"
 for i in $(seq 1 $NODES); do
     # Aggiunge il prefisso 0 se i < 10
     TMP=$((i - 1))
-    if [ $i -lt 10 ]; then
+    if [ $i -lt 11 ]; then
         NODE_NAME="fd-0$TMP"
     else
         NODE_NAME="fd-$TMP"

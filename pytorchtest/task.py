@@ -13,19 +13,10 @@ import wandb
 import time
 import os
 
-
 os.environ["WANDB_API_KEY"] ="c9ecc4c3eeac8445768b6c97a55298ddd835562d"
+os.environ["WANDB_SILENT"] = "true"
 
-group_name = "experiment-" + time.strftime("%Y%m%d-%H%M")
-run_name = "client-" + wandb.util.generate_id()
 
-wandb.init(
-    project="CNN_Stage",    
-    entity="damiano-cannizzaro-universit-di-torino",
-    group = group_name,
-    name = run_name,
-    
-)
 class Net(nn.Module):
     """Model (simple CNN adapted from 'PyTorch: A 60 Minute Blitz')"""
 
@@ -61,6 +52,7 @@ def load_data(partition_id: int, num_partitions: int):
             partitioners={"train": partitioner},
         )
     partition = fds.load_partition(partition_id)
+
     # Divide data on each node: 80% train, 20% test
     partition_train_test = partition.train_test_split(test_size=0.2, seed=42)
     pytorch_transforms = Compose(
@@ -94,12 +86,7 @@ def train(net, trainloader, epochs, device):
             loss.backward()
             optimizer.step()
             running_loss += loss.item()
-            # Log loss to wandb
-            wandb.log({
-                "loss": loss.item(),
-                "epoch": _,
-                "accuracy": (torch.max(net(images.to(device)), 1)[1] == labels.to(device)).sum().item() / len(labels),
-        })
+          
     avg_trainloss = running_loss / len(trainloader)
     return avg_trainloss
 
