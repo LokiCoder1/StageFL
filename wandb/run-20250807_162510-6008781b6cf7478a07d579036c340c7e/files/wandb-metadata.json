@@ -1,0 +1,31 @@
+{
+  "os": "Linux-6.8.0-60-generic-x86_64-with-glibc2.35",
+  "python": "CPython 3.10.13",
+  "startedAt": "2025-08-07T16:24:25.465485Z",
+  "args": [
+    "--clientappio-api-address",
+    "127.0.0.1:9094",
+    "--token",
+    "12161702745460837285",
+    "--insecure"
+  ],
+  "program": "/opt/conda/bin/flower-supernode",
+  "root": "/app",
+  "host": "fd-03",
+  "executable": "/opt/conda/bin/python",
+  "cpu_count": 16,
+  "cpu_count_logical": 16,
+  "disk": {
+    "/": {
+      "total": "51835101184",
+      "used": "18518593536"
+    }
+  },
+  "memory": {
+    "total": "33652113408"
+  },
+  "cpu": {
+    "count": 16,
+    "countLogical": 16
+  }
+}

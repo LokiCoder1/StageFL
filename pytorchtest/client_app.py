@@ -17,9 +17,9 @@ from task import Net, get_weights, load_data, set_weights, test, train
 os.environ["WANDB_API_KEY"] = "c9ecc4c3eeac8445768b6c97a55298ddd835562d"
 os.environ["WANDB_SILENT"] = "true"
 
-# Percorsi ai file condivisi (relativi alla directory pytorchtest)
-CURRENT_PATH = "current_id.json"      
-CLIENT_PATH = "client_id.json"     
+# Percorsi ai file condivisi
+CURRENT_PATH = "pytorchtest/current_id.json"      
+CLIENT_PATH = "pytorchtest/client_id.json"     
 
 def load_json_safe(path, default=None):
     """Carica un file JSON in modo sicuro, gestendo file mancanti o corrotti"""
@@ -29,7 +29,6 @@ def load_json_safe(path, default=None):
         with open(path, "r") as f:
             return json.load(f)
     except (json.JSONDecodeError, IOError):
-        print(f"⚠️  Warning: File {path} corrotto o non leggibile, uso default")
         return default if default is not None else {}
 
 def save_json_safe(path, data):
@@ -38,11 +37,10 @@ def save_json_safe(path, data):
         with open(path, "w") as f:
             json.dump(data, f, indent=4)
         return True
-    except IOError as e:
-        print(f"❌ Errore nel salvare {path}: {e}")
+    except IOError:
         return False
 
-def wait_for_experiment_info(timeout=60):
+def wait_for_experiment_info(timeout=30):
     """
     Attende che le informazioni dell'esperimento siano disponibili
     
@@ -53,18 +51,19 @@ def wait_for_experiment_info(timeout=60):
         dict: Informazioni dell'esperimento o None se timeout
     """
     start_time = time.time()
+    printed_waiting = False
     
     while time.time() - start_time < timeout:
         if os.path.exists(CURRENT_PATH):
             experiment_info = load_json_safe(CURRENT_PATH)
             if experiment_info and "group_name" in experiment_info:
-                print(f"✅ Informazioni esperimento caricate: {experiment_info['group_name']}")
                 return experiment_info
         
-        print("⏳ In attesa delle informazioni dell'esperimento...")
-        time.sleep(2)
+        if not printed_waiting:
+            print("⏳ Attendo informazioni esperimento...")
+            printed_waiting = True
+        time.sleep(1)
     
-    print(f"⚠️  Timeout: impossibile caricare le informazioni dell'esperimento dopo {timeout}s")
     return None
 
 def register_client_in_experiment(experiment_info):
@@ -113,11 +112,7 @@ def register_client_in_experiment(experiment_info):
     
     # Salva il registro aggiornato
     if save_json_safe(CLIENT_PATH, client_registry):
-        print(f"✅ Client registrato come: {client_name}")
-        print(f"   🖥️  Hostname: {hostname}")
-        print(f"   📊 Numero client: {client_number}")
-    else:
-        print("⚠️  Warning: Impossibile salvare il registro dei client")
+        print(f"✅ Client registrato: {client_name} (#{client_number})")
     
     return group_name, client_name
 
@@ -137,7 +132,14 @@ def setup_wandb_tracking(group_name, client_name, experiment_info):
     Returns:
         wandb.Run: Oggetto run di wandb
     """
-    # Costruisci tags descrittivi
+    # Converti stringhe in numeri per wandb
+    def safe_int(value, default=0):
+        try:
+            return int(value) if value != "unknown" else default
+        except (ValueError, TypeError):
+            return default
+    
+    # Tags (rimangono stringhe)
     tags = [
         f"nodes_{experiment_info.get('nodes', 'unknown')}",
         f"rounds_{experiment_info.get('rounds', 'unknown')}",
@@ -145,6 +147,16 @@ def setup_wandb_tracking(group_name, client_name, experiment_info):
         "federated_learning",
         "pytorch"
     ]
+    
+    # Config (solo numeri per evitare errori)
+    config = {
+        "experiment_id": experiment_info.get("experiment_id", 0),
+        "nodes": safe_int(experiment_info.get("nodes")),
+        "server_rounds": safe_int(experiment_info.get("rounds")),
+        "local_epochs": safe_int(experiment_info.get("epochs")),
+        "partition_id": None,  # Verrà impostato dal client
+        "total_partitions": None,  # Verrà impostato dal client
+    }
     
     # Configura wandb
     run = wandb.init(
@@ -154,28 +166,24 @@ def setup_wandb_tracking(group_name, client_name, experiment_info):
         name=client_name,
         id=generate_wandb_id(client_name),
         tags=tags,
-        config={
-            "experiment_id": experiment_info.get("experiment_id"),
-            "nodes": experiment_info.get("nodes"),
-            "server_rounds": experiment_info.get("rounds"),
-            "local_epochs": experiment_info.get("epochs"),
-            "description": experiment_info.get("description", ""),
-            "hostname": socket.gethostname()
-        },
+        config=config,
         notes=experiment_info.get("description", ""),
         reinit=False,
         resume="allow",
     )
     
-    print(f"📊 Wandb configurato:")
-    print(f"   🏷️  Gruppo: {group_name}")
-    print(f"   📝 Nome: {client_name}")
-    print(f"   🏷️  Tags: {', '.join(tags)}")
+    # Aggiorna config con info che sono stringhe
+    wandb.config.update({
+        "hostname": socket.gethostname(),
+        "client_name": client_name,
+    }, allow_val_change=True)
     
+    print(f"📊 Wandb: {group_name} → {client_name}")
     return run
 
 # Define Flower Client and client_fn
 class FlowerClient(NumPyClient):
+    
     def __init__(self, net, trainloader, valloader, local_epochs, partition_id, run, num_partitions, client_name):
         self.net = net
         self.trainloader = trainloader
@@ -188,16 +196,43 @@ class FlowerClient(NumPyClient):
         self.num_partitions = num_partitions
         self.client_name = client_name
         
-        print(f"💻 Client {client_name} inizializzato:")
-        print(f"   🖥️  Device: {self.device}")
-        print(f"   📊 Partition ID: {partition_id}/{num_partitions}")
-        print(f"   📈 Epoche locali: {local_epochs}")
-        print(f"   📚 Training samples: {len(trainloader.dataset)}")
-        print(f"   🧪 Validation samples: {len(valloader.dataset)}")
+        # File unico per tutti i round
+        self.rounds_file = "pytorchtest/rounds_tracker.json"
+        self.client_key = f"{client_name}_{partition_id}"
+        
+        print(f"💻 {client_name} pronto - Device: {self.device}, Samples: {len(trainloader.dataset)}")
+        
+        # Aggiorna wandb config con info specifiche del client
+        run.config.update({
+            "partition_id": partition_id,
+            "total_partitions": num_partitions,
+        }, allow_val_change=True)
+    
+    def get_and_increment_round(self, operation):
+        """Gestisce il contatore dei round tramite file unico"""
+        rounds_data = load_json_safe(self.rounds_file, {})
+        
+        # Inizializza il client se non esiste
+        if self.client_key not in rounds_data:
+            rounds_data[self.client_key] = {"train_rounds": 0, "eval_rounds": 0}
+        
+        client_rounds = rounds_data[self.client_key]
+        
+        if operation == "train":
+            client_rounds["train_rounds"] += 1
+            current_round = client_rounds["train_rounds"]
+        else:  # evaluate
+            client_rounds["eval_rounds"] += 1
+            current_round = client_rounds["eval_rounds"]
+        
+        save_json_safe(self.rounds_file, rounds_data)
+        return current_round
 
     def fit(self, parameters, config):
         """Training del modello locale"""
-        print(f"🏋️ [{self.client_name}] Inizio training locale...")
+        current_round = self.get_and_increment_round("train")
+        
+        print(f"🏋️ [{self.client_name}] Round {current_round} - Training...")
         
         set_weights(self.net, parameters)
         train_loss = train(
@@ -207,17 +242,10 @@ class FlowerClient(NumPyClient):
             self.device,
         )
         
-        # Log su wandb
-        self.run.log(
-            {
-                "train_loss": train_loss,
-                "client_name": self.client_name,
-                "partition_id": self.partition_id
-            },
-            commit=False,
-        )
+        # Log su wandb (solo metriche numeriche)
+        self.run.log({"train_loss": train_loss}, commit=False)
         
-        print(f"✅ [{self.client_name}] Training completato - Loss: {train_loss:.4f}")
+        print(f"✅ Training Loss: {train_loss:.4f}")
         
         return (
             get_weights(self.net),
@@ -227,77 +255,62 @@ class FlowerClient(NumPyClient):
 
     def evaluate(self, parameters, config):
         """Valutazione del modello"""
-        print(f"🧪 [{self.client_name}] Inizio valutazione...")
+        current_round = self.get_and_increment_round("eval")
+        print(f"🧪 [{self.client_name}] Round {current_round} - Valutazione...")
         
         set_weights(self.net, parameters)
         loss, accuracy = test(self.net, self.valloader, self.device)
         
-        # Log finale su wandb
+        # Log finale su wandb (solo metriche numeriche)
         self.run.log({
             "evaluate_loss": loss,
             "evaluate_accuracy": accuracy,
-            "client_name": self.client_name,
-            "partition_id": self.partition_id
         })
         
-        print(f"✅ [{self.client_name}] Valutazione completata - Loss: {loss:.4f}, Accuracy: {accuracy:.4f}")
+        print(f"✅ Loss: {loss:.4f}, Accuracy: {accuracy:.4f}")
         
         try:
             return loss, len(self.valloader.dataset), {"accuracy": accuracy}
         finally:
-            print(f"🏁 [{self.client_name}] Chiusura wandb run")
+            print(f"🏁 Round {current_round} completato")
             self.run.finish()
 
 def client_fn(context: Context):
-    """Funzione principale del client con gestione migliorata degli esperimenti"""
+    """Funzione principale del client - ogni chiamata è un nuovo processo"""
     
     print("🚀 Inizializzazione client Flower...")
-    
-    # Caricamento modello e dati
     print("🧠 Caricamento modello e dati...")
+    
+    # Load model and data
     net = Net()
     partition_id = context.node_config["partition-id"]
     num_partitions = context.node_config["num-partitions"]
     trainloader, valloader = load_data(partition_id, num_partitions)
     local_epochs = context.run_config["local-epochs"]
     
-    print(f"📊 Configurazione client:")
-    print(f"   🆔 Partition ID: {partition_id}")
-    print(f"   📊 Num partitions: {num_partitions}")
-    print(f"   📈 Local epochs: {local_epochs}")
+    print(f"📊 Partition: {partition_id}/{num_partitions}, Epoche: {local_epochs}")
     
-    # Attesa e caricamento delle informazioni dell'esperimento
-    print("⏳ Caricamento informazioni esperimento...")
-    experiment_info = wait_for_experiment_info(timeout=120)
+    # Caricamento informazioni esperimento (timeout ridotto per evitare attese)
+    experiment_info = wait_for_experiment_info(timeout=30)
     
     if not experiment_info:
-        print("❌ Impossibile caricare le informazioni dell'esperimento, uso fallback")
-        # Fallback con naming basico
+        print("❌ Fallback naming")
         group_name = f"FALLBACK_GROUP_{int(time.time())}"
         client_name = f"{group_name}_CLIENT_{socket.gethostname()}"
-    else:
-        # Registrazione del client nell'esperimento
-        print("📝 Registrazione client nell'esperimento...")
-        group_name, client_name = register_client_in_experiment(experiment_info)
-    
-    # Setup del tracking wandb
-    print("📊 Configurazione tracking wandb...")
-    if experiment_info:
-        run = setup_wandb_tracking(group_name, client_name, experiment_info)
-    else:
-        # Fallback wandb config
         run = wandb.init(
-            project="CNN_Stage",
+            project="CNN_Stage", 
             entity="damiano-cannizzaro-universit-di-torino",
-            group=group_name,
-            name=client_name,
+            group=group_name, 
+            name=client_name, 
             id=generate_wandb_id(client_name),
-            reinit=False,
-            resume="allow",
+            reinit=False, 
+            resume="allow"
         )
+    else:
+        group_name, client_name = register_client_in_experiment(experiment_info)
+        run = setup_wandb_tracking(group_name, client_name, experiment_info)
     
-    # Creazione e return del client
-    print("✅ Client configurato e pronto per il training federato")
+    # Creazione client
     client = FlowerClient(
         net, trainloader, valloader, local_epochs, 
         partition_id, run, num_partitions, client_name

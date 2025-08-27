@@ -1,0 +1,340 @@
+{
+    "timings": [
+        {
+            "experiment_id": 12,
+            "nodes": 4,
+            "rounds": 5,
+            "epochs": 5,
+            "execution_time_seconds": 0.02,
+            "execution_time_minutes": 0.0
+        },
+        {
+            "experiment_id": 13,
+            "nodes": 4,
+            "rounds": 5,
+            "epochs": 5,
+            "execution_time_seconds": 0.02,
+            "execution_time_minutes": 0.0
+        },
+        {
+            "experiment_id": 14,
+            "nodes": 4,
+            "rounds": 7,
+            "epochs": 5,
+            "execution_time_seconds": 0.02,
+            "execution_time_minutes": 0.0
+        },
+        {
+            "experiment_id": 15,
+            "nodes": 4,
+            "rounds": 5,
+            "epochs": 7,
+            "execution_time_seconds": 0.02,
+            "execution_time_minutes": 0.0
+        },
+        {
+            "experiment_id": 16,
+            "nodes": 4,
+            "rounds": 7,
+            "epochs": 7,
+            "execution_time_seconds": 0.02,
+            "execution_time_minutes": 0.0
+        },
+        {
+            "experiment_id": 17,
+            "nodes": 2,
+            "rounds": 3,
+            "epochs": 3,
+            "execution_time_seconds": 180.5,
+            "execution_time_minutes": 3.01
+        },
+        {
+            "experiment_id": 18,
+            "nodes": 2,
+            "rounds": 5,
+            "epochs": 3,
+            "execution_time_seconds": 327.88,
+            "execution_time_minutes": 5.46
+        },
+        {
+            "experiment_id": 19,
+            "nodes": 2,
+            "rounds": 7,
+            "epochs": 3,
+            "execution_time_seconds": 466.24,
+            "execution_time_minutes": 7.77
+        },
+        {
+            "experiment_id": 20,
+            "nodes": 2,
+            "rounds": 3,
+            "epochs": 5,
+            "execution_time_seconds": 276.69,
+            "execution_time_minutes": 4.61
+        },
+        {
+            "experiment_id": 21,
+            "nodes": 2,
+            "rounds": 5,
+            "epochs": 5,
+            "execution_time_seconds": 424.11,
+            "execution_time_minutes": 7.07
+        },
+        {
+            "experiment_id": 23,
+            "nodes": 2,
+            "rounds": 3,
+            "epochs": 7,
+            "execution_time_seconds": 309.77,
+            "execution_time_minutes": 5.16
+        },
+        {
+            "experiment_id": 26,
+            "nodes": 3,
+            "rounds": 3,
+            "epochs": 3,
+            "execution_time_seconds": 156.7,
+            "execution_time_minutes": 2.61
+        },
+        {
+            "experiment_id": 27,
+            "nodes": 3,
+            "rounds": 5,
+            "epochs": 3,
+            "execution_time_seconds": 270.84,
+            "execution_time_minutes": 4.51
+        },
+        {
+            "experiment_id": 28,
+            "nodes": 3,
+            "rounds": 7,
+            "epochs": 3,
+            "execution_time_seconds": 394.2,
+            "execution_time_minutes": 6.57
+        },
+        {
+            "experiment_id": 29,
+            "nodes": 3,
+            "rounds": 3,
+            "epochs": 5,
+            "execution_time_seconds": 219.59,
+            "execution_time_minutes": 3.66
+        },
+        {
+            "experiment_id": 30,
+            "nodes": 3,
+            "rounds": 5,
+            "epochs": 5,
+            "execution_time_seconds": 354.96,
+            "execution_time_minutes": 5.92
+        },
+        {
+            "experiment_id": 31,
+            "nodes": 3,
+            "rounds": 7,
+            "epochs": 5,
+            "execution_time_seconds": 505.38,
+            "execution_time_minutes": 8.42
+        },
+        {
+            "experiment_id": 32,
+            "nodes": 3,
+            "rounds": 3,
+            "epochs": 7,
+            "execution_time_seconds": 267.69,
+            "execution_time_minutes": 4.46
+        },
+        {
+            "experiment_id": 33,
+            "nodes": 3,
+            "rounds": 5,
+            "epochs": 7,
+            "execution_time_seconds": 454.14,
+            "execution_time_minutes": 7.57
+        },
+        {
+            "experiment_id": 34,
+            "nodes": 3,
+            "rounds": 7,
+            "epochs": 7,
+            "execution_time_seconds": 625.86,
+            "execution_time_minutes": 10.43
+        },
+        {
+            "experiment_id": 35,
+            "nodes": 4,
+            "rounds": 3,
+            "epochs": 3,
+            "execution_time_seconds": 147.51,
+            "execution_time_minutes": 2.46
+        },
+        {
+            "experiment_id": 36,
+            "nodes": 4,
+            "rounds": 5,
+            "epochs": 3,
+            "execution_time_seconds": 258.87,
+            "execution_time_minutes": 4.31
+        },
+        {
+            "experiment_id": 37,
+            "nodes": 4,
+            "rounds": 7,
+            "epochs": 3,
+            "execution_time_seconds": 370.21,
+            "execution_time_minutes": 6.17
+        },
+        {
+            "experiment_id": 38,
+            "nodes": 4,
+            "rounds": 3,
+            "epochs": 5,
+            "execution_time_seconds": 198.63,
+            "execution_time_minutes": 3.31
+        },
+        {
+            "experiment_id": 39,
+            "nodes": 4,
+            "rounds": 5,
+            "epochs": 5,
+            "execution_time_seconds": 334.06,
+            "execution_time_minutes": 5.57
+        },
+        {
+            "experiment_id": 40,
+            "nodes": 4,
+            "rounds": 7,
+            "epochs": 5,
+            "execution_time_seconds": 475.42,
+            "execution_time_minutes": 7.92
+        },
+        {
+            "experiment_id": 41,
+            "nodes": 4,
+            "rounds": 3,
+            "epochs": 7,
+            "execution_time_seconds": 237.68,
+            "execution_time_minutes": 3.96
+        },
+        {
+            "experiment_id": 42,
+            "nodes": 4,
+            "rounds": 5,
+            "epochs": 7,
+            "execution_time_seconds": 406.41,
+            "execution_time_minutes": 6.77
+        },
+        {
+            "experiment_id": 43,
+            "nodes": 4,
+            "rounds": 7,
+            "epochs": 7,
+            "execution_time_seconds": 577.68,
+            "execution_time_minutes": 9.63
+        },
+        {
+            "experiment_id": 44,
+            "nodes": 4,
+            "rounds": 4,
+            "epochs": 4,
+            "execution_time_seconds": 231.73,
+            "execution_time_minutes": 3.86
+        },
+        {
+            "experiment_id": 45,
+            "nodes": 4,
+            "rounds": 6,
+            "epochs": 4,
+            "execution_time_seconds": 364.18,
+            "execution_time_minutes": 6.07
+        },
+        {
+            "experiment_id": 46,
+            "nodes": 4,
+            "rounds": 4,
+            "epochs": 6,
+            "execution_time_seconds": 285.87,
+            "execution_time_minutes": 4.76
+        },
+        {
+            "experiment_id": 47,
+            "nodes": 4,
+            "rounds": 6,
+            "epochs": 6,
+            "execution_time_seconds": 445.35,
+            "execution_time_minutes": 7.42
+        },
+        {
+            "experiment_id": 48,
+            "nodes": 6,
+            "rounds": 4,
+            "epochs": 4,
+            "execution_time_seconds": 391.54,
+            "execution_time_minutes": 6.53
+        },
+        {
+            "experiment_id": 49,
+            "nodes": 6,
+            "rounds": 6,
+            "epochs": 4,
+            "execution_time_seconds": 487.95,
+            "execution_time_minutes": 8.13
+        },
+        {
+            "experiment_id": 50,
+            "nodes": 6,
+            "rounds": 4,
+            "epochs": 6,
+            "execution_time_seconds": 424.73,
+            "execution_time_minutes": 7.08
+        },
+        {
+            "experiment_id": 53,
+            "nodes": 3,
+            "rounds": 2,
+            "epochs": 2,
+            "execution_time_seconds": 105.33,
+            "execution_time_minutes": 1.76
+        },
+        {
+            "experiment_id": 54,
+            "nodes": 3,
+            "rounds": 3,
+            "epochs": 4,
+            "execution_time_seconds": 174.56,
+            "execution_time_minutes": 2.91
+        },
+        {
+            "experiment_id": 55,
+            "nodes": 4,
+            "rounds": 3,
+            "epochs": 4,
+            "execution_time_seconds": 180.58,
+            "execution_time_minutes": 3.01
+        },
+        {
+            "experiment_id": 56,
+            "nodes": 5,
+            "rounds": 3,
+            "epochs": 4,
+            "execution_time_seconds": 180.71,
+            "execution_time_minutes": 3.01
+        },
+        {
+            "experiment_id": 57,
+            "nodes": 6,
+            "rounds": 3,
+            "epochs": 4,
+            "execution_time_seconds": 219.81,
+            "execution_time_minutes": 3.66
+        },
+        {
+            "experiment_id": 58,
+            "nodes": 7,
+            "rounds": 3,
+            "epochs": 4,
+            "execution_time_seconds": 268.18,
+            "execution_time_minutes": 4.47
+        }
+    ]
+}

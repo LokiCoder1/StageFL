@@ -28,10 +28,11 @@ clientapp = "client_app:app"
 
 [tool.flwr.app.config]
 # Number of rounds the server will run during training
-num-server-rounds = 4
+num-server-rounds = 3
 fraction-fit = 1
 fraction-evaluate = 1
-local-epochs = 2
+local-epochs = 4
+num-nodes = 4
 
 
 [tool.flwr.federations]

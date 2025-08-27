@@ -1,0 +1,535 @@
+{
+    "experiments": [
+        {
+            "experiment_id": 1,
+            "group_name": "EXP_001_N2_R2_E2",
+            "nodes": "2",
+            "rounds": "2",
+            "epochs": "2",
+            "start_time": "2025-08-02T16:42:21.082765",
+            "status": "running"
+        },
+        {
+            "experiment_id": 2,
+            "group_name": "EXP_002_N2_R2_E2",
+            "nodes": "2",
+            "rounds": "2",
+            "epochs": "2",
+            "start_time": "2025-08-02T16:49:13.971047",
+            "status": "running"
+        },
+        {
+            "experiment_id": 3,
+            "group_name": "EXP_003_N3_R2_E2",
+            "nodes": "3",
+            "rounds": "2",
+            "epochs": "2",
+            "start_time": "2025-08-02T16:54:50.451877",
+            "status": "running"
+        },
+        {
+            "experiment_id": 4,
+            "group_name": "EXP_004_N4_R2_E2",
+            "nodes": "4",
+            "rounds": "2",
+            "epochs": "2",
+            "start_time": "2025-08-02T17:01:03.428799",
+            "status": "running"
+        },
+        {
+            "experiment_id": 5,
+            "group_name": "EXP_005_N5_R2_E2",
+            "nodes": "5",
+            "rounds": "2",
+            "epochs": "2",
+            "start_time": "2025-08-02T17:07:48.373041",
+            "status": "running"
+        },
+        {
+            "experiment_id": 6,
+            "group_name": "EXP_006_N2_R2_E2",
+            "nodes": "2",
+            "rounds": "2",
+            "epochs": "2",
+            "start_time": "2025-08-02T17:37:25.634595",
+            "status": "running"
+        },
+        {
+            "experiment_id": 7,
+            "group_name": "EXP_007_N2_R4_E5",
+            "nodes": "2",
+            "rounds": "4",
+            "epochs": "5",
+            "start_time": "2025-08-02T21:53:47.178511",
+            "status": "running"
+        },
+        {
+            "experiment_id": 8,
+            "group_name": "EXP_008_N3_R4_E5",
+            "nodes": "3",
+            "rounds": "4",
+            "epochs": "5",
+            "start_time": "2025-08-02T22:03:48.965011",
+            "status": "running"
+        },
+        {
+            "experiment_id": 9,
+            "group_name": "EXP_009_N4_R4_E5",
+            "nodes": "4",
+            "rounds": "4",
+            "epochs": "5",
+            "start_time": "2025-08-02T22:14:34.125985",
+            "status": "running"
+        },
+        {
+            "experiment_id": 10,
+            "group_name": "EXP_010_N5_R4_E5",
+            "nodes": "5",
+            "rounds": "4",
+            "epochs": "5",
+            "start_time": "2025-08-02T22:26:03.229283",
+            "status": "running"
+        },
+        {
+            "experiment_id": 11,
+            "group_name": "EXP_011_N6_R4_E5",
+            "nodes": "6",
+            "rounds": "4",
+            "epochs": "5",
+            "start_time": "2025-08-02T22:38:19.977052",
+            "status": "running"
+        },
+        {
+            "experiment_id": 12,
+            "group_name": "EXP_012_N4_R5_E5",
+            "nodes": "4",
+            "rounds": "5",
+            "epochs": "5",
+            "start_time": "2025-08-02T22:57:48.929847",
+            "status": "running"
+        },
+        {
+            "experiment_id": 13,
+            "group_name": "EXP_013_N4_R5_E5",
+            "nodes": "4",
+            "rounds": "5",
+            "epochs": "5",
+            "start_time": "2025-08-02T23:11:36.821320",
+            "status": "running"
+        },
+        {
+            "experiment_id": 14,
+            "group_name": "EXP_014_N4_R7_E5",
+            "nodes": "4",
+            "rounds": "7",
+            "epochs": "5",
+            "start_time": "2025-08-02T23:23:23.589463",
+            "status": "running"
+        },
+        {
+            "experiment_id": 15,
+            "group_name": "EXP_015_N4_R5_E7",
+            "nodes": "4",
+            "rounds": "5",
+            "epochs": "7",
+            "start_time": "2025-08-02T23:38:20.359676",
+            "status": "running"
+        },
+        {
+            "experiment_id": 16,
+            "group_name": "EXP_016_N4_R7_E7",
+            "nodes": "4",
+            "rounds": "7",
+            "epochs": "7",
+            "start_time": "2025-08-02T23:51:34.464158",
+            "status": "running"
+        },
+        {
+            "experiment_id": 17,
+            "group_name": "EXP_017_N2_R3_E3",
+            "nodes": "2",
+            "rounds": "3",
+            "epochs": "3",
+            "start_time": "2025-08-03T07:23:16.438666",
+            "status": "running"
+        },
+        {
+            "experiment_id": 18,
+            "group_name": "EXP_018_N2_R5_E3",
+            "nodes": "2",
+            "rounds": "5",
+            "epochs": "3",
+            "start_time": "2025-08-03T07:29:24.466602",
+            "status": "running"
+        },
+        {
+            "experiment_id": 19,
+            "group_name": "EXP_019_N2_R7_E3",
+            "nodes": "2",
+            "rounds": "7",
+            "epochs": "3",
+            "start_time": "2025-08-03T07:37:31.913798",
+            "status": "running"
+        },
+        {
+            "experiment_id": 20,
+            "group_name": "EXP_020_N2_R3_E5",
+            "nodes": "2",
+            "rounds": "3",
+            "epochs": "5",
+            "start_time": "2025-08-03T07:47:36.814054",
+            "status": "running"
+        },
+        {
+            "experiment_id": 21,
+            "group_name": "EXP_021_N2_R5_E5",
+            "nodes": "2",
+            "rounds": "5",
+            "epochs": "5",
+            "start_time": "2025-08-03T07:54:24.173075",
+            "status": "running"
+        },
+        {
+            "experiment_id": 22,
+            "group_name": "EXP_022_N2_R7_E5",
+            "nodes": "2",
+            "rounds": "7",
+            "epochs": "5",
+            "start_time": "2025-08-03T08:03:36.941684",
+            "status": "running"
+        },
+        {
+            "experiment_id": 23,
+            "group_name": "EXP_023_N2_R3_E7",
+            "nodes": "2",
+            "rounds": "3",
+            "epochs": "7",
+            "start_time": "2025-08-03T08:15:15.960018",
+            "status": "running"
+        },
+        {
+            "experiment_id": 24,
+            "group_name": "EXP_024_N2_R5_E7",
+            "nodes": "2",
+            "rounds": "5",
+            "epochs": "7",
+            "start_time": "2025-08-03T08:22:42.910013",
+            "status": "running"
+        },
+        {
+            "experiment_id": 25,
+            "group_name": "EXP_025_N2_R7_E7",
+            "nodes": "2",
+            "rounds": "7",
+            "epochs": "7",
+            "start_time": "2025-08-03T08:33:01.704645",
+            "status": "running"
+        },
+        {
+            "experiment_id": 26,
+            "group_name": "EXP_026_N3_R3_E3",
+            "nodes": "3",
+            "rounds": "3",
+            "epochs": "3",
+            "start_time": "2025-08-03T08:46:18.291992",
+            "status": "running"
+        },
+        {
+            "experiment_id": 27,
+            "group_name": "EXP_027_N3_R5_E3",
+            "nodes": "3",
+            "rounds": "5",
+            "epochs": "3",
+            "start_time": "2025-08-03T08:52:57.704968",
+            "status": "running"
+        },
+        {
+            "experiment_id": 28,
+            "group_name": "EXP_028_N3_R7_E3",
+            "nodes": "3",
+            "rounds": "7",
+            "epochs": "3",
+            "start_time": "2025-08-03T09:01:42.226404",
+            "status": "running"
+        },
+        {
+            "experiment_id": 29,
+            "group_name": "EXP_029_N3_R3_E5",
+            "nodes": "3",
+            "rounds": "3",
+            "epochs": "5",
+            "start_time": "2025-08-03T09:12:32.326495",
+            "status": "running"
+        },
+        {
+            "experiment_id": 30,
+            "group_name": "EXP_030_N3_R5_E5",
+            "nodes": "3",
+            "rounds": "5",
+            "epochs": "5",
+            "start_time": "2025-08-03T09:19:51.171987",
+            "status": "running"
+        },
+        {
+            "experiment_id": 31,
+            "group_name": "EXP_031_N3_R7_E5",
+            "nodes": "3",
+            "rounds": "7",
+            "epochs": "5",
+            "start_time": "2025-08-03T09:29:41.850946",
+            "status": "running"
+        },
+        {
+            "experiment_id": 32,
+            "group_name": "EXP_032_N3_R3_E7",
+            "nodes": "3",
+            "rounds": "3",
+            "epochs": "7",
+            "start_time": "2025-08-03T09:42:04.682326",
+            "status": "running"
+        },
+        {
+            "experiment_id": 33,
+            "group_name": "EXP_033_N3_R5_E7",
+            "nodes": "3",
+            "rounds": "5",
+            "epochs": "7",
+            "start_time": "2025-08-03T09:50:03.443273",
+            "status": "running"
+        },
+        {
+            "experiment_id": 34,
+            "group_name": "EXP_034_N3_R7_E7",
+            "nodes": "3",
+            "rounds": "7",
+            "epochs": "7",
+            "start_time": "2025-08-03T10:00:59.673130",
+            "status": "running"
+        },
+        {
+            "experiment_id": 35,
+            "group_name": "EXP_035_N4_R3_E3",
+            "nodes": "4",
+            "rounds": "3",
+            "epochs": "3",
+            "start_time": "2025-08-03T10:15:03.267512",
+            "status": "running"
+        },
+        {
+            "experiment_id": 36,
+            "group_name": "EXP_036_N4_R5_E3",
+            "nodes": "4",
+            "rounds": "5",
+            "epochs": "3",
+            "start_time": "2025-08-03T10:22:14.731503",
+            "status": "running"
+        },
+        {
+            "experiment_id": 37,
+            "group_name": "EXP_037_N4_R7_E3",
+            "nodes": "4",
+            "rounds": "7",
+            "epochs": "3",
+            "start_time": "2025-08-03T10:31:37.881213",
+            "status": "running"
+        },
+        {
+            "experiment_id": 38,
+            "group_name": "EXP_038_N4_R3_E5",
+            "nodes": "4",
+            "rounds": "3",
+            "epochs": "5",
+            "start_time": "2025-08-03T10:43:13.766609",
+            "status": "running"
+        },
+        {
+            "experiment_id": 39,
+            "group_name": "EXP_039_N4_R5_E5",
+            "nodes": "4",
+            "rounds": "5",
+            "epochs": "5",
+            "start_time": "2025-08-03T10:51:03.508970",
+            "status": "running"
+        },
+        {
+            "experiment_id": 40,
+            "group_name": "EXP_040_N4_R7_E5",
+            "nodes": "4",
+            "rounds": "7",
+            "epochs": "5",
+            "start_time": "2025-08-03T11:01:33.119543",
+            "status": "running"
+        },
+        {
+            "experiment_id": 41,
+            "group_name": "EXP_041_N4_R3_E7",
+            "nodes": "4",
+            "rounds": "3",
+            "epochs": "7",
+            "start_time": "2025-08-03T11:14:41.696087",
+            "status": "running"
+        },
+        {
+            "experiment_id": 42,
+            "group_name": "EXP_042_N4_R5_E7",
+            "nodes": "4",
+            "rounds": "5",
+            "epochs": "7",
+            "start_time": "2025-08-03T11:23:12.387529",
+            "status": "running"
+        },
+        {
+            "experiment_id": 43,
+            "group_name": "EXP_043_N4_R7_E7",
+            "nodes": "4",
+            "rounds": "7",
+            "epochs": "7",
+            "start_time": "2025-08-03T11:34:47.988816",
+            "status": "running"
+        },
+        {
+            "experiment_id": 44,
+            "group_name": "EXP_044_N4_R4_E4",
+            "nodes": "4",
+            "rounds": "4",
+            "epochs": "4",
+            "start_time": "2025-08-07T15:54:28.210346",
+            "status": "running"
+        },
+        {
+            "experiment_id": 45,
+            "group_name": "EXP_045_N4_R6_E4",
+            "nodes": "4",
+            "rounds": "6",
+            "epochs": "4",
+            "start_time": "2025-08-07T16:03:11.242944",
+            "status": "running"
+        },
+        {
+            "experiment_id": 46,
+            "group_name": "EXP_046_N4_R4_E6",
+            "nodes": "4",
+            "rounds": "4",
+            "epochs": "6",
+            "start_time": "2025-08-07T16:14:19.799120",
+            "status": "running"
+        },
+        {
+            "experiment_id": 47,
+            "group_name": "EXP_047_N4_R6_E6",
+            "nodes": "4",
+            "rounds": "6",
+            "epochs": "6",
+            "start_time": "2025-08-07T16:23:56.183098",
+            "status": "running"
+        },
+        {
+            "experiment_id": 48,
+            "group_name": "EXP_048_N6_R4_E4",
+            "nodes": "6",
+            "rounds": "4",
+            "epochs": "4",
+            "start_time": "2025-08-07T16:36:38.700266",
+            "status": "running"
+        },
+        {
+            "experiment_id": 49,
+            "group_name": "EXP_049_N6_R6_E4",
+            "nodes": "6",
+            "rounds": "6",
+            "epochs": "4",
+            "start_time": "2025-08-07T16:46:31.662706",
+            "status": "running"
+        },
+        {
+            "experiment_id": 50,
+            "group_name": "EXP_050_N6_R4_E6",
+            "nodes": "6",
+            "rounds": "4",
+            "epochs": "6",
+            "start_time": "2025-08-07T16:59:03.940622",
+            "status": "running"
+        },
+        {
+            "experiment_id": 51,
+            "group_name": "EXP_051_N6_R6_E6",
+            "nodes": "6",
+            "rounds": "6",
+            "epochs": "6",
+            "start_time": "2025-08-07T17:09:49.971581",
+            "status": "running"
+        },
+        {
+            "experiment_id": 52,
+            "group_name": "EXP_052_N8_R4_E4",
+            "nodes": "8",
+            "rounds": "4",
+            "epochs": "4",
+            "start_time": "2025-08-07T17:46:57.800831",
+            "status": "running"
+        },
+        {
+            "experiment_id": 53,
+            "group_name": "EXP_053_N3_R2_E2",
+            "nodes": "3",
+            "rounds": "2",
+            "epochs": "2",
+            "start_time": "2025-08-27T15:31:34.917466",
+            "status": "running"
+        },
+        {
+            "experiment_id": 54,
+            "group_name": "EXP_054_N3_R3_E4",
+            "nodes": "3",
+            "rounds": "3",
+            "epochs": "4",
+            "start_time": "2025-08-27T15:35:59.168711",
+            "status": "running"
+        },
+        {
+            "experiment_id": 55,
+            "group_name": "EXP_055_N4_R3_E4",
+            "nodes": "4",
+            "rounds": "3",
+            "epochs": "4",
+            "start_time": "2025-08-27T15:43:04.900463",
+            "status": "running"
+        },
+        {
+            "experiment_id": 56,
+            "group_name": "EXP_056_N5_R3_E4",
+            "nodes": "5",
+            "rounds": "3",
+            "epochs": "4",
+            "start_time": "2025-08-27T15:50:42.690573",
+            "status": "running"
+        },
+        {
+            "experiment_id": 57,
+            "group_name": "EXP_057_N6_R3_E4",
+            "nodes": "6",
+            "rounds": "3",
+            "epochs": "4",
+            "start_time": "2025-08-27T15:58:51.904597",
+            "status": "running"
+        },
+        {
+            "experiment_id": 58,
+            "group_name": "EXP_058_N7_R3_E4",
+            "nodes": "7",
+            "rounds": "3",
+            "epochs": "4",
+            "start_time": "2025-08-27T16:07:33.569486",
+            "status": "running"
+        },
+        {
+            "experiment_id": 59,
+            "group_name": "EXP_059_N4_R3_E4",
+            "nodes": "4",
+            "rounds": "3",
+            "epochs": "4",
+            "start_time": "2025-08-27T16:57:06.906793",
+            "status": "running"
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "experiment_id": 59,
+    "group_name": "EXP_059_N4_R3_E4",
+    "nodes": "4",
+    "rounds": "3",
+    "epochs": "4",
+    "timestamp": "2025-08-27T16:57:06.900575",
+    "description": "Federated Learning: 4 nodi, 3 round, 4 epoche locali"
+}

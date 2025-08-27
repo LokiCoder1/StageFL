@@ -1,0 +1,55 @@
+_wandb:
+    value:
+        cli_version: 0.19.11
+        m: []
+        python_version: 3.10.13
+        t:
+            "1":
+                - 1
+                - 30
+                - 41
+                - 49
+                - 51
+                - 55
+            "2":
+                - 1
+                - 30
+                - 41
+                - 49
+                - 51
+                - 55
+            "3":
+                - 2
+                - 5
+                - 13
+                - 14
+                - 15
+                - 16
+                - 23
+                - 55
+                - 62
+            "4": 3.10.13
+            "5": 0.19.11
+            "8":
+                - 5
+                - 9
+            "10":
+                - 20
+            "12": 0.19.11
+            "13": linux-x86_64
+client_name:
+    value: EXP_025_N2_R7_E7_CLIENT_01
+experiment_id:
+    value: 25
+hostname:
+    value: fd-01
+local_epochs:
+    value: 7
+nodes:
+    value: 2
+partition_id:
+    value: 1
+server_rounds:
+    value: 7
+total_partitions:
+    value: 2

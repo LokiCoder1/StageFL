@@ -5,6 +5,9 @@ IMAGE_NAME = fd-coordinator:5000/pytorch_image:latest
 
 .PHONY: start build run stop clean shell ssh train 1
 
+setup:
+	@bash env_setup.sh $(NODES)
+
 # start container on both server and client
 # arg 1: 
 start:

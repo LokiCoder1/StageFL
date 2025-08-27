@@ -40,9 +40,9 @@ def run_command(cmd):
     print(f"✅ Comando completato con successo")
     return True
 
-def update_toml(num_rounds, local_epochs):
+def update_toml(num_rounds, local_epochs, nodes):
     """Aggiorna il file pyproject.toml con i nuovi parametri"""
-    print_step(f"Aggiorno pyproject.toml: num-server-rounds={num_rounds}, local-epochs={local_epochs}")
+    print_step(f"Aggiorno pyproject.toml: nodes={nodes}, num-server-rounds={num_rounds}, local-epochs={local_epochs}")
     
     try:
         with open(TOML_PATH, "r") as f:
@@ -51,6 +51,7 @@ def update_toml(num_rounds, local_epochs):
         new_lines = []
         updated_rounds = False
         updated_epochs = False
+        updated_nodes = False
         
         for line in lines:
             stripped = line.strip()
@@ -60,8 +61,19 @@ def update_toml(num_rounds, local_epochs):
             elif stripped.startswith("local-epochs"):
                 new_lines.append(f"local-epochs = {local_epochs}\n")
                 updated_epochs = True
+            elif stripped.startswith("num-nodes"):
+                new_lines.append(f"num-nodes = {nodes}\n")
+                updated_nodes = True
             else:
                 new_lines.append(line)
+        
+        # Se num-nodes non esisteva, aggiungilo nella sezione config
+        if not updated_nodes:
+            # Trova dove inserirlo (dopo local-epochs)
+            for i, line in enumerate(new_lines):
+                if line.strip().startswith("local-epochs"):
+                    new_lines.insert(i + 1, f"num-nodes = {nodes}\n")
+                    break
         
         if not updated_rounds or not updated_epochs:
             print(f"⚠️  Attenzione: alcuni parametri potrebbero non essere stati trovati nel file TOML")
@@ -91,20 +103,21 @@ def calculate_wait_times(num_rounds, local_epochs, nodes):
     Returns:
         tuple: (wait_start_to_stop, wait_stop_to_next)
     """
-    # Tempo base per l'inizializzazione
-    base_init_time = 60
+    # Tempo base per l'inizializzazione 
+    base_init_time = 90  
     
-    # Tempo stimato per round (dipende da epoche e nodi)
-    time_per_round = 20 + (local_epochs * 5) + (nodes * 2)
+    # Tempo stimato per round e epoche
+    # Questi valori sono ipotetici e possono essere regolati in base ai test
+    time_per_round = 30 + (local_epochs * 6) + (nodes * 3) 
     
     # Tempo totale stimato per tutti i round
     total_round_time = num_rounds * time_per_round
     
-    # Tempo di attesa dopo start (con margine di sicurezza del 20%)
-    wait_start_to_stop = base_init_time + int(total_round_time * 1.2)
+    # Tempo di attesa dopo start (con margine di sicurezza del 10%)
+    wait_start_to_stop = base_init_time + int(total_round_time * 1.1)
     
-    # Tempo di attesa dopo stop (tempo per cleanup)
-    wait_stop_to_next = 30 + (nodes * 2)
+    # Tempo di attesa dopo stop 
+    wait_stop_to_next = 45 + (nodes * 3) 
     
     return wait_start_to_stop, wait_stop_to_next
 
@@ -216,9 +229,12 @@ Esempi di utilizzo:
                     continue
                 
                 # Aggiorna pyproject.toml
-                if not update_toml(num_rounds, local_epochs):
+                if not update_toml(num_rounds, local_epochs, nodes):
                     print("❌ Errore nell'aggiornamento del file TOML, esco.")
                     return
+                
+                # Imposta la variabile d'ambiente per il numero di nodi
+                os.environ["EXPERIMENT_NODES"] = str(nodes)
                 
                 # Lancia make start
                 start_cmd = f"make start NODES={nodes}"

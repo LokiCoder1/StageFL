@@ -3,16 +3,73 @@
 from flwr.common import Context, ndarrays_to_parameters
 from flwr.server import ServerApp, ServerAppComponents, ServerConfig
 from flwr.server.strategy import FedAvg
+
+class TimedFedAvg(FedAvg):
+    """FedAvg con tracking del tempo di esecuzione"""
+    
+    def __init__(self, experiment_id, group_name, nodes, rounds, epochs, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.experiment_id = experiment_id
+        self.group_name = group_name
+        self.nodes = nodes
+        self.rounds = rounds
+        self.epochs = epochs
+        self.start_time = None
+        self.end_time = None
+    
+    def initialize_parameters(self, client_manager):
+        """Chiamato all'inizio del training"""
+        import time
+        self.start_time = time.time()
+        print(f"⏱️  Inizio training: {self.group_name}")
+        return super().initialize_parameters(client_manager)
+    
+    def evaluate(self, server_round, parameters):
+        """Chiamato alla fine di ogni round"""
+        result = super().evaluate(server_round, parameters)
+        
+        # Se è l'ultimo round, calcola il tempo totale
+        if server_round >= int(self.rounds):
+            import time
+            self.end_time = time.time()
+            execution_time = self.end_time - self.start_time
+            
+            # Converte stringhe in numeri
+            def safe_int(value, default=0):
+                try:
+                    return int(value) if value != "unknown" else default
+                except (ValueError, TypeError):
+                    return default
+            
+            # Log del timing
+            timing_data = {
+                "experiment_id": self.experiment_id,
+                "nodes": safe_int(self.nodes),
+                "rounds": safe_int(self.rounds),
+                "epochs": safe_int(self.epochs),
+                "execution_time_seconds": round(execution_time, 2),
+                "execution_time_minutes": round(execution_time / 60, 2)
+            }
+            
+            # Salva timing
+            timing_file = "pytorchtest/experiment_timings.json"
+            timings = load_json_safe(timing_file, {"timings": []})
+            timings["timings"].append(timing_data)
+            save_json_safe(timing_file, timings)
+            
+            print(f"⏱️  Training completato in: {execution_time:.1f}s ({execution_time/60:.1f} min)")
+        
+        return result
 from task import Net, get_weights
 import os
 import json
 from datetime import datetime
 
-# Percorsi ai file di configurazione (relativi alla directory pytorchtest)
-GROUP_PATH = "group_id.json"
-CURRENT_PATH = "current_id.json"
-CLIENT_PATH = "client_id.json"
-EXPERIMENT_PATH = "experiment_log.json"
+# Percorsi ai file di configurazione
+GROUP_PATH = "pytorchtest/group_id.json"
+CURRENT_PATH = "pytorchtest/current_id.json"
+CLIENT_PATH = "pytorchtest/client_id.json"
+EXPERIMENT_PATH = "pytorchtest/experiment_log.json"
 
 def load_json_safe(path, default=None):
     """Carica un file JSON in modo sicuro, gestendo file mancanti o corrotti"""
@@ -38,9 +95,8 @@ def save_json_safe(path, data):
 def get_experiment_metadata():
     """
     Estrae i metadati dell'esperimento dal file pyproject.toml
-    per sincronizzarsi con lo script di automazione
     """
-    toml_path = "pyproject.toml"
+    toml_path = "pytorchtest/pyproject.toml"
     metadata = {
         "nodes": "unknown",
         "rounds": "unknown", 
@@ -55,17 +111,16 @@ def get_experiment_metadata():
         with open(toml_path, "r") as f:
             content = f.read()
             
-        # Parsing semplice del TOML per estrarre i valori
+        # Parsing del TOML per estrarre i valori
         for line in content.split('\n'):
             line = line.strip()
             if line.startswith("num-server-rounds"):
                 metadata["rounds"] = line.split("=")[1].strip()
             elif line.startswith("local-epochs"):
                 metadata["epochs"] = line.split("=")[1].strip()
+            elif line.startswith("num-nodes"):
+                metadata["nodes"] = line.split("=")[1].strip()
                 
-        # Il numero di nodi viene passato via environment variable dallo script di automazione
-        metadata["nodes"] = os.environ.get("EXPERIMENT_NODES", "unknown")
-        
     except Exception as e:
         print(f"⚠️  Warning: Errore nel leggere {toml_path}: {e}")
     
@@ -160,32 +215,31 @@ def server_fn(context: Context):
     rounds = str(num_rounds)
     epochs = str(local_epochs)
     
-    print(f"📋 Parametri server:")
-    print(f"   🖥️  Nodi: {nodes}")
-    print(f"   🔄 Round: {rounds}")
-    print(f"   📈 Epoche locali: {epochs}")
-    print(f"   📊 Frazione fit: {fraction_fit}")
+    print(f"📋 Server: {nodes} nodi, {rounds} round, {epochs} epoche, fraction: {fraction_fit}")
     
     # Inizializzazione modello
     print("🧠 Inizializzazione del modello...")
     ndarrays = get_weights(Net())
     parameters = ndarrays_to_parameters(ndarrays)
     
-    # Strategia federata
-    print("⚙️  Configurazione strategia FedAvg...")
-    strategy = FedAvg(
+    # Generazione e gestione del gruppo esperimento
+    experiment_id, group_name, experiment_info = generate_experiment_group_name(
+        nodes, rounds, epochs
+    )
+    
+    # Strategia federata con timing
+    strategy = TimedFedAvg(
+        experiment_id=experiment_id,
+        group_name=group_name,
+        nodes=nodes,
+        rounds=rounds,
+        epochs=epochs,
         fraction_fit=fraction_fit,
         fraction_evaluate=1.0,
         min_available_clients=2,
         initial_parameters=parameters,
     )
     config = ServerConfig(num_rounds=num_rounds)
-    
-    # Generazione e gestione del gruppo esperimento
-    print("🏷️  Generazione identificativo esperimento...")
-    experiment_id, group_name, experiment_info = generate_experiment_group_name(
-        nodes, rounds, epochs
-    )
     
     # Salvataggio delle informazioni dell'esperimento corrente
     if not save_current_experiment_info(experiment_info):
@@ -194,17 +248,12 @@ def server_fn(context: Context):
     # Pulizia del registro client per il nuovo esperimento
     if not clear_client_registry():
         print("⚠️  Warning: Impossibile pulire il registro dei client")
-    else:
-        print("🧹 Registro client pulito per il nuovo esperimento")
     
     # Log dell'inizio dell'esperimento
     if not log_experiment_start(experiment_info):
         print("⚠️  Warning: Impossibile loggare l'inizio dell'esperimento")
-    else:
-        print("📝 Esperimento registrato nel log")
     
-    print(f"✅ Server configurato per esperimento: {group_name}")
-    print("🎯 Avvio del training federato...")
+    print(f"✅ Server pronto per: {group_name}")
     
     return ServerAppComponents(strategy=strategy, config=config)
 
