@@ -1,0 +1,29 @@
+{
+  "os": "Linux-6.8.0-60-generic-x86_64-with-glibc2.35",
+  "python": "CPython 3.10.13",
+  "startedAt": "2025-08-30T09:39:28.397685Z",
+  "args": [
+    "--clientappio-api-address",
+    "127.0.0.1:9094",
+    "--parent-pid",
+    "7",
+    "--insecure",
+    "--run-once"
+  ],
+  "program": "/opt/conda/bin/flwr-clientapp",
+  "root": "/app",
+  "host": "fd-06",
+  "executable": "/opt/conda/bin/python",
+  "cpu_count": 16,
+  "cpu_count_logical": 16,
+  "disk": {
+    "/": {
+      "total": "51835101184",
+      "used": "17399197696"
+    }
+  },
+  "memory": {
+    "total": "33652121600"
+  },
+  "writerId": "ypzs41ieduo7yddv6dqyud44rpdxo3xb"
+}

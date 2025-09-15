@@ -1,798 +1,298 @@
 {
-    "EXP_007_N2_R4_E5_CLIENT_01_0": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_007_N2_R4_E5_CLIENT_02_1": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_008_N3_R4_E5_CLIENT_01_0": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_008_N3_R4_E5_CLIENT_02_2": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_008_N3_R4_E5_CLIENT_03_1": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_009_N4_R4_E5_CLIENT_01_1": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_009_N4_R4_E5_CLIENT_02_0": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_009_N4_R4_E5_CLIENT_03_3": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_009_N4_R4_E5_CLIENT_04_2": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_010_N5_R4_E5_CLIENT_01_2": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_010_N5_R4_E5_CLIENT_02_1": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_010_N5_R4_E5_CLIENT_03_4": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_010_N5_R4_E5_CLIENT_04_3": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_010_N5_R4_E5_CLIENT_05_0": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_011_N6_R4_E5_CLIENT_01_3": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_011_N6_R4_E5_CLIENT_02_0": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_011_N6_R4_E5_CLIENT_03_4": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_011_N6_R4_E5_CLIENT_04_2": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_011_N6_R4_E5_CLIENT_05_1": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_011_N6_R4_E5_CLIENT_06_5": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_012_N4_R5_E5_CLIENT_01_3": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_012_N4_R5_E5_CLIENT_02_1": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_012_N4_R5_E5_CLIENT_03_0": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_012_N4_R5_E5_CLIENT_04_2": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_013_N4_R5_E5_CLIENT_01_1": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_013_N4_R5_E5_CLIENT_02_3": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_013_N4_R5_E5_CLIENT_03_0": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_013_N4_R5_E5_CLIENT_04_2": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_014_N4_R7_E5_CLIENT_01_1": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_014_N4_R7_E5_CLIENT_03_3": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_014_N4_R7_E5_CLIENT_02_2": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_014_N4_R7_E5_CLIENT_04_0": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_015_N4_R5_E7_CLIENT_01_1": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_015_N4_R5_E7_CLIENT_02_2": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_015_N4_R5_E7_CLIENT_04_3": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_015_N4_R5_E7_CLIENT_03_0": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_016_N4_R7_E7_CLIENT_01_2": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_016_N4_R7_E7_CLIENT_02_1": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_016_N4_R7_E7_CLIENT_03_3": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_016_N4_R7_E7_CLIENT_04_0": {
-        "train_rounds": 7,
-        "eval_rounds": 6
-    },
-    "EXP_017_N2_R3_E3_CLIENT_01_0": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_017_N2_R3_E3_CLIENT_02_1": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_018_N2_R5_E3_CLIENT_01_1": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_018_N2_R5_E3_CLIENT_02_0": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_019_N2_R7_E3_CLIENT_01_0": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_019_N2_R7_E3_CLIENT_02_1": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_020_N2_R3_E5_CLIENT_01_0": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_020_N2_R3_E5_CLIENT_02_1": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_021_N2_R5_E5_CLIENT_01_0": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_021_N2_R5_E5_CLIENT_02_1": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_022_N2_R7_E5_CLIENT_01_1": {
-        "train_rounds": 7,
-        "eval_rounds": 6
-    },
-    "EXP_022_N2_R7_E5_CLIENT_02_0": {
-        "train_rounds": 7,
-        "eval_rounds": 6
-    },
-    "EXP_023_N2_R3_E7_CLIENT_01_0": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_023_N2_R3_E7_CLIENT_02_1": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_024_N2_R5_E7_CLIENT_01_0": {
-        "train_rounds": 5,
-        "eval_rounds": 4
-    },
-    "EXP_024_N2_R5_E7_CLIENT_02_1": {
-        "train_rounds": 5,
-        "eval_rounds": 4
-    },
-    "EXP_025_N2_R7_E7_CLIENT_01_1": {
-        "train_rounds": 6,
-        "eval_rounds": 6
-    },
-    "EXP_025_N2_R7_E7_CLIENT_02_0": {
-        "train_rounds": 6,
-        "eval_rounds": 6
-    },
-    "EXP_026_N3_R3_E3_CLIENT_01_0": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_026_N3_R3_E3_CLIENT_02_2": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_026_N3_R3_E3_CLIENT_03_1": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_027_N3_R5_E3_CLIENT_01_0": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_027_N3_R5_E3_CLIENT_02_2": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_027_N3_R5_E3_CLIENT_03_1": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_028_N3_R7_E3_CLIENT_01_0": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_028_N3_R7_E3_CLIENT_02_2": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_028_N3_R7_E3_CLIENT_03_1": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_029_N3_R3_E5_CLIENT_01_0": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_029_N3_R3_E5_CLIENT_02_2": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_029_N3_R3_E5_CLIENT_03_1": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_030_N3_R5_E5_CLIENT_01_0": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_030_N3_R5_E5_CLIENT_02_2": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_030_N3_R5_E5_CLIENT_03_1": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_031_N3_R7_E5_CLIENT_01_0": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_031_N3_R7_E5_CLIENT_02_2": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_031_N3_R7_E5_CLIENT_03_1": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_032_N3_R3_E7_CLIENT_01_2": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_032_N3_R3_E7_CLIENT_02_0": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_032_N3_R3_E7_CLIENT_03_1": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_033_N3_R5_E7_CLIENT_01_0": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_033_N3_R5_E7_CLIENT_02_2": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_033_N3_R5_E7_CLIENT_03_1": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_034_N3_R7_E7_CLIENT_01_2": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_034_N3_R7_E7_CLIENT_02_0": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_034_N3_R7_E7_CLIENT_03_1": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_035_N4_R3_E3_CLIENT_01_0": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_035_N4_R3_E3_CLIENT_02_2": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_035_N4_R3_E3_CLIENT_03_3": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_035_N4_R3_E3_CLIENT_04_1": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_036_N4_R5_E3_CLIENT_01_1": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_036_N4_R5_E3_CLIENT_02_3": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_036_N4_R5_E3_CLIENT_03_0": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_036_N4_R5_E3_CLIENT_04_2": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_037_N4_R7_E3_CLIENT_01_1": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_037_N4_R7_E3_CLIENT_02_3": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_037_N4_R7_E3_CLIENT_03_0": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_037_N4_R7_E3_CLIENT_04_2": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_038_N4_R3_E5_CLIENT_01_3": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_038_N4_R3_E5_CLIENT_02_1": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_038_N4_R3_E5_CLIENT_03_0": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_038_N4_R3_E5_CLIENT_04_2": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_039_N4_R5_E5_CLIENT_01_2": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_039_N4_R5_E5_CLIENT_02_1": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_039_N4_R5_E5_CLIENT_03_3": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_039_N4_R5_E5_CLIENT_04_0": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_040_N4_R7_E5_CLIENT_01_1": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_040_N4_R7_E5_CLIENT_02_3": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_040_N4_R7_E5_CLIENT_03_0": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_040_N4_R7_E5_CLIENT_04_2": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_041_N4_R3_E7_CLIENT_01_1": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_041_N4_R3_E7_CLIENT_02_3": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_041_N4_R3_E7_CLIENT_03_0": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_041_N4_R3_E7_CLIENT_04_2": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_042_N4_R5_E7_CLIENT_01_1": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_042_N4_R5_E7_CLIENT_02_3": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_042_N4_R5_E7_CLIENT_03_0": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_042_N4_R5_E7_CLIENT_04_2": {
-        "train_rounds": 5,
-        "eval_rounds": 5
-    },
-    "EXP_043_N4_R7_E7_CLIENT_01_2": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_043_N4_R7_E7_CLIENT_02_1": {
-        "train_rounds": 7,
-        "eval_rounds": 6
-    },
-    "EXP_043_N4_R7_E7_CLIENT_03_3": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_043_N4_R7_E7_CLIENT_04_0": {
-        "train_rounds": 7,
-        "eval_rounds": 7
-    },
-    "EXP_044_N4_R4_E4_CLIENT_01_0": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_044_N4_R4_E4_CLIENT_02_3": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_044_N4_R4_E4_CLIENT_03_2": {
-        "train_rounds": 3,
-        "eval_rounds": 4
-    },
-    "EXP_044_N4_R4_E4_CLIENT_04_1": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_045_N4_R6_E4_CLIENT_01_1": {
-        "train_rounds": 6,
-        "eval_rounds": 6
-    },
-    "EXP_045_N4_R6_E4_CLIENT_02_2": {
-        "train_rounds": 6,
-        "eval_rounds": 6
-    },
-    "EXP_045_N4_R6_E4_CLIENT_03_0": {
-        "train_rounds": 6,
-        "eval_rounds": 6
-    },
-    "EXP_045_N4_R6_E4_CLIENT_04_3": {
-        "train_rounds": 6,
-        "eval_rounds": 6
-    },
-    "EXP_046_N4_R4_E6_CLIENT_01_1": {
-        "train_rounds": 3,
-        "eval_rounds": 4
-    },
-    "EXP_046_N4_R4_E6_CLIENT_02_3": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_046_N4_R4_E6_CLIENT_03_2": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_046_N4_R4_E6_CLIENT_04_0": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_047_N4_R6_E6_CLIENT_01_1": {
-        "train_rounds": 6,
-        "eval_rounds": 6
-    },
-    "EXP_047_N4_R6_E6_CLIENT_02_3": {
-        "train_rounds": 6,
-        "eval_rounds": 6
-    },
-    "EXP_047_N4_R6_E6_CLIENT_03_0": {
-        "train_rounds": 6,
-        "eval_rounds": 6
-    },
-    "EXP_047_N4_R6_E6_CLIENT_04_2": {
-        "train_rounds": 6,
-        "eval_rounds": 6
-    },
-    "EXP_048_N6_R4_E4_CLIENT_01_5": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_048_N6_R4_E4_CLIENT_02_1": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_048_N6_R4_E4_CLIENT_03_4": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_048_N6_R4_E4_CLIENT_04_3": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_048_N6_R4_E4_CLIENT_05_0": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_048_N6_R4_E4_CLIENT_06_2": {
-        "train_rounds": 4,
-        "eval_rounds": 3
-    },
-    "EXP_049_N6_R6_E4_CLIENT_01_5": {
-        "train_rounds": 6,
-        "eval_rounds": 6
-    },
-    "EXP_049_N6_R6_E4_CLIENT_02_0": {
-        "train_rounds": 6,
-        "eval_rounds": 6
-    },
-    "EXP_049_N6_R6_E4_CLIENT_03_2": {
-        "train_rounds": 6,
-        "eval_rounds": 6
-    },
-    "EXP_049_N6_R6_E4_CLIENT_04_4": {
-        "train_rounds": 6,
-        "eval_rounds": 6
-    },
-    "EXP_049_N6_R6_E4_CLIENT_05_1": {
-        "train_rounds": 6,
-        "eval_rounds": 6
-    },
-    "EXP_049_N6_R6_E4_CLIENT_06_3": {
-        "train_rounds": 6,
-        "eval_rounds": 5
-    },
-    "EXP_050_N6_R4_E6_CLIENT_01_5": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_050_N6_R4_E6_CLIENT_03_2": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_050_N6_R4_E6_CLIENT_02_0": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_050_N6_R4_E6_CLIENT_04_4": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_050_N6_R4_E6_CLIENT_05_1": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_050_N6_R4_E6_CLIENT_06_3": {
-        "train_rounds": 4,
-        "eval_rounds": 4
-    },
-    "EXP_051_N6_R6_E6_CLIENT_01_0": {
-        "train_rounds": 6,
-        "eval_rounds": 5
-    },
-    "EXP_051_N6_R6_E6_CLIENT_02_5": {
-        "train_rounds": 6,
-        "eval_rounds": 5
-    },
-    "EXP_051_N6_R6_E6_CLIENT_03_2": {
-        "train_rounds": 6,
-        "eval_rounds": 5
-    },
-    "EXP_051_N6_R6_E6_CLIENT_04_4": {
-        "train_rounds": 6,
-        "eval_rounds": 5
-    },
-    "EXP_051_N6_R6_E6_CLIENT_05_1": {
-        "train_rounds": 6,
-        "eval_rounds": 5
-    },
-    "EXP_051_N6_R6_E6_CLIENT_06_3": {
-        "train_rounds": 6,
-        "eval_rounds": 5
-    },
-    "EXP_052_N8_R4_E4_CLIENT_01_3": {
-        "train_rounds": 1,
-        "eval_rounds": 0
-    },
-    "EXP_052_N8_R4_E4_CLIENT_02_0": {
-        "train_rounds": 1,
-        "eval_rounds": 0
-    },
-    "EXP_052_N8_R4_E4_CLIENT_03_2": {
-        "train_rounds": 1,
-        "eval_rounds": 0
-    },
-    "EXP_052_N8_R4_E4_CLIENT_04_5": {
-        "train_rounds": 1,
-        "eval_rounds": 0
-    },
-    "EXP_052_N8_R4_E4_CLIENT_05_1": {
-        "train_rounds": 1,
-        "eval_rounds": 0
-    },
-    "EXP_052_N8_R4_E4_CLIENT_06_4": {
-        "train_rounds": 1,
-        "eval_rounds": 0
-    },
-    "EXP_053_N3_R2_E2_CLIENT_01_0": {
-        "train_rounds": 2,
+    "EXP_187_N10_R5_E5_CLIENT_09_0": {
+        "train_rounds": 0,
         "eval_rounds": 2
     },
-    "EXP_053_N3_R2_E2_CLIENT_02_2": {
-        "train_rounds": 2,
+    "EXP_187_N10_R5_E5_CLIENT_04_9": {
+        "train_rounds": 1,
         "eval_rounds": 2
     },
-    "EXP_053_N3_R2_E2_CLIENT_03_1": {
-        "train_rounds": 2,
+    "EXP_187_N10_R5_E5_CLIENT_03_4": {
+        "train_rounds": 1,
         "eval_rounds": 2
     },
-    "EXP_054_N3_R3_E4_CLIENT_02_2": {
-        "train_rounds": 3,
-        "eval_rounds": 3
+    "EXP_187_N10_R5_E5_CLIENT_05_5": {
+        "train_rounds": 1,
+        "eval_rounds": 2
     },
-    "EXP_054_N3_R3_E4_CLIENT_03_1": {
-        "train_rounds": 3,
-        "eval_rounds": 3
+    "EXP_187_N10_R5_E5_CLIENT_07_1": {
+        "train_rounds": 1,
+        "eval_rounds": 2
     },
-    "EXP_054_N3_R3_E4_CLIENT_01_0": {
-        "train_rounds": 3,
-        "eval_rounds": 3
+    "EXP_187_N10_R5_E5_CLIENT_06_6": {
+        "train_rounds": 0,
+        "eval_rounds": 2
     },
-    "EXP_055_N4_R3_E4_CLIENT_01_1": {
-        "train_rounds": 3,
-        "eval_rounds": 3
+    "EXP_187_N10_R5_E5_CLIENT_02_3": {
+        "train_rounds": 0,
+        "eval_rounds": 2
     },
-    "EXP_055_N4_R3_E4_CLIENT_02_0": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_055_N4_R3_E4_CLIENT_03_2": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_055_N4_R3_E4_CLIENT_04_3": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_056_N5_R3_E4_CLIENT_01_0": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_056_N5_R3_E4_CLIENT_02_3": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_056_N5_R3_E4_CLIENT_03_2": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_056_N5_R3_E4_CLIENT_04_4": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_056_N5_R3_E4_CLIENT_05_1": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_057_N6_R3_E4_CLIENT_01_0": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_057_N6_R3_E4_CLIENT_02_2": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_057_N6_R3_E4_CLIENT_03_1": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_057_N6_R3_E4_CLIENT_04_4": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_057_N6_R3_E4_CLIENT_05_3": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_057_N6_R3_E4_CLIENT_06_5": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_058_N7_R3_E4_CLIENT_02_4": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_058_N7_R3_E4_CLIENT_01_1": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_058_N7_R3_E4_CLIENT_03_3": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_058_N7_R3_E4_CLIENT_04_0": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_058_N7_R3_E4_CLIENT_06_2": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_058_N7_R3_E4_CLIENT_05_5": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_058_N7_R3_E4_CLIENT_07_6": {
-        "train_rounds": 3,
-        "eval_rounds": 3
-    },
-    "EXP_059_N4_R3_E4_CLIENT_01_2": {
-        "train_rounds": 2,
+    "EXP_187_N10_R5_E5_CLIENT_08_7": {
+        "train_rounds": 1,
         "eval_rounds": 1
     },
-    "EXP_059_N4_R3_E4_CLIENT_02_1": {
-        "train_rounds": 2,
+    "EXP_187_N10_R5_E5_CLIENT_10_2": {
+        "train_rounds": 0,
         "eval_rounds": 1
     },
-    "EXP_059_N4_R3_E4_CLIENT_03_0": {
-        "train_rounds": 2,
+    "EXP_187_N10_R5_E5_CLIENT_01_8": {
+        "train_rounds": 0,
         "eval_rounds": 1
     },
-    "EXP_059_N4_R3_E4_CLIENT_04_3": {
+    "EXP_188_N11_R5_E5_CLIENT_01_5": {
         "train_rounds": 2,
+        "eval_rounds": 5
+    },
+    "EXP_188_N11_R5_E5_CLIENT_02_9": {
+        "train_rounds": 3,
+        "eval_rounds": 5
+    },
+    "EXP_188_N11_R5_E5_CLIENT_03_8": {
+        "train_rounds": 3,
+        "eval_rounds": 5
+    },
+    "EXP_188_N11_R5_E5_CLIENT_04_3": {
+        "train_rounds": 2,
+        "eval_rounds": 5
+    },
+    "EXP_188_N11_R5_E5_CLIENT_05_6": {
+        "train_rounds": 2,
+        "eval_rounds": 5
+    },
+    "EXP_188_N11_R5_E5_CLIENT_06_2": {
+        "train_rounds": 3,
+        "eval_rounds": 4
+    },
+    "EXP_188_N11_R5_E5_CLIENT_07_7": {
+        "train_rounds": 0,
         "eval_rounds": 1
+    },
+    "EXP_188_N11_R5_E5_CLIENT_08_10": {
+        "train_rounds": 3,
+        "eval_rounds": 5
+    },
+    "EXP_188_N11_R5_E5_CLIENT_09_1": {
+        "train_rounds": 3,
+        "eval_rounds": 5
+    },
+    "EXP_188_N11_R5_E5_CLIENT_10_0": {
+        "train_rounds": 1,
+        "eval_rounds": 5
+    },
+    "EXP_188_N11_R5_E5_CLIENT_07_4": {
+        "train_rounds": 1,
+        "eval_rounds": 5
+    },
+    "EXP_188_N11_R5_E5_CLIENT_11_7": {
+        "train_rounds": 2,
+        "eval_rounds": 4
+    },
+    "EXP_189_N12_R5_E5_CLIENT_01_1": {
+        "train_rounds": 3,
+        "eval_rounds": 5
+    },
+    "EXP_189_N12_R5_E5_CLIENT_02_3": {
+        "train_rounds": 2,
+        "eval_rounds": 5
+    },
+    "EXP_189_N12_R5_E5_CLIENT_03_10": {
+        "train_rounds": 3,
+        "eval_rounds": 5
+    },
+    "EXP_189_N12_R5_E5_CLIENT_04_11": {
+        "train_rounds": 3,
+        "eval_rounds": 5
+    },
+    "EXP_189_N12_R5_E5_CLIENT_05_2": {
+        "train_rounds": 2,
+        "eval_rounds": 5
+    },
+    "EXP_189_N12_R5_E5_CLIENT_06_4": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_189_N12_R5_E5_CLIENT_07_8": {
+        "train_rounds": 2,
+        "eval_rounds": 5
+    },
+    "EXP_189_N12_R5_E5_CLIENT_09_6": {
+        "train_rounds": 2,
+        "eval_rounds": 5
+    },
+    "EXP_189_N12_R5_E5_CLIENT_08_0": {
+        "train_rounds": 2,
+        "eval_rounds": 5
+    },
+    "EXP_189_N12_R5_E5_CLIENT_10_5": {
+        "train_rounds": 0,
+        "eval_rounds": 5
+    },
+    "EXP_189_N12_R5_E5_CLIENT_11_7": {
+        "train_rounds": 2,
+        "eval_rounds": 5
+    },
+    "EXP_189_N12_R5_E5_CLIENT_12_9": {
+        "train_rounds": 4,
+        "eval_rounds": 5
+    },
+    "EXP_190_N13_R5_E5_CLIENT_01_2": {
+        "train_rounds": 2,
+        "eval_rounds": 5
+    },
+    "EXP_190_N13_R5_E5_CLIENT_02_10": {
+        "train_rounds": 3,
+        "eval_rounds": 4
+    },
+    "EXP_190_N13_R5_E5_CLIENT_03_1": {
+        "train_rounds": 3,
+        "eval_rounds": 4
+    },
+    "EXP_190_N13_R5_E5_CLIENT_04_11": {
+        "train_rounds": 2,
+        "eval_rounds": 5
+    },
+    "EXP_190_N13_R5_E5_CLIENT_05_9": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_190_N13_R5_E5_CLIENT_06_12": {
+        "train_rounds": 3,
+        "eval_rounds": 5
+    },
+    "EXP_190_N13_R5_E5_CLIENT_07_0": {
+        "train_rounds": 2,
+        "eval_rounds": 5
+    },
+    "EXP_190_N13_R5_E5_CLIENT_08_7": {
+        "train_rounds": 1,
+        "eval_rounds": 5
+    },
+    "EXP_190_N13_R5_E5_CLIENT_09_4": {
+        "train_rounds": 1,
+        "eval_rounds": 5
+    },
+    "EXP_190_N13_R5_E5_CLIENT_10_5": {
+        "train_rounds": 2,
+        "eval_rounds": 5
+    },
+    "EXP_190_N13_R5_E5_CLIENT_11_8": {
+        "train_rounds": 1,
+        "eval_rounds": 5
+    },
+    "EXP_190_N13_R5_E5_CLIENT_12_6": {
+        "train_rounds": 3,
+        "eval_rounds": 5
+    },
+    "EXP_190_N13_R5_E5_CLIENT_13_3": {
+        "train_rounds": 2,
+        "eval_rounds": 5
+    },
+    "EXP_191_N2_R5_E5_CLIENT_01_0": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_191_N2_R5_E5_CLIENT_02_1": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_192_N3_R5_E5_CLIENT_02_2": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_192_N3_R5_E5_CLIENT_01_0": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_192_N3_R5_E5_CLIENT_03_1": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_193_N4_R5_E5_CLIENT_01_3": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_193_N4_R5_E5_CLIENT_02_1": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_193_N4_R5_E5_CLIENT_03_2": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_193_N4_R5_E5_CLIENT_04_0": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_194_N5_R5_E5_CLIENT_01_2": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_194_N5_R5_E5_CLIENT_02_4": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_194_N5_R5_E5_CLIENT_03_0": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_194_N5_R5_E5_CLIENT_04_3": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_194_N5_R5_E5_CLIENT_05_1": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_195_N6_R5_E5_CLIENT_01_2": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_195_N6_R5_E5_CLIENT_02_4": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_195_N6_R5_E5_CLIENT_03_0": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_195_N6_R5_E5_CLIENT_04_3": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_195_N6_R5_E5_CLIENT_05_5": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_195_N6_R5_E5_CLIENT_06_1": {
+        "train_rounds": 5,
+        "eval_rounds": 5
+    },
+    "EXP_196_N7_R5_E5_CLIENT_01_2": {
+        "train_rounds": 5,
+        "eval_rounds": 4
+    },
+    "EXP_196_N7_R5_E5_CLIENT_02_4": {
+        "train_rounds": 5,
+        "eval_rounds": 4
+    },
+    "EXP_196_N7_R5_E5_CLIENT_03_6": {
+        "train_rounds": 5,
+        "eval_rounds": 4
+    },
+    "EXP_196_N7_R5_E5_CLIENT_04_5": {
+        "train_rounds": 5,
+        "eval_rounds": 4
+    },
+    "EXP_196_N7_R5_E5_CLIENT_05_1": {
+        "train_rounds": 5,
+        "eval_rounds": 3
+    },
+    "EXP_196_N7_R5_E5_CLIENT_06_3": {
+        "train_rounds": 4,
+        "eval_rounds": 4
+    },
+    "EXP_196_N7_R5_E5_CLIENT_07_0": {
+        "train_rounds": 5,
+        "eval_rounds": 4
     }
 }

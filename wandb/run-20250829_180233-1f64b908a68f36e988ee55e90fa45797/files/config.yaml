@@ -1,0 +1,73 @@
+_wandb:
+    value:
+        cli_version: 0.21.2
+        e:
+            i9qt56rwe8qhl1bi2rwpus4l3nt0hulb:
+                args:
+                    - --clientappio-api-address
+                    - 127.0.0.1:9094
+                    - --parent-pid
+                    - "7"
+                    - --insecure
+                    - --run-once
+                cpu_count: 16
+                cpu_count_logical: 16
+                disk:
+                    /:
+                        total: "51835101184"
+                        used: "17591156736"
+                executable: /opt/conda/bin/python
+                host: fd-09
+                memory:
+                    total: "33652121600"
+                os: Linux-6.8.0-60-generic-x86_64-with-glibc2.35
+                program: /opt/conda/bin/flwr-clientapp
+                python: CPython 3.10.13
+                root: /app
+                startedAt: "2025-08-29T18:02:33.965015Z"
+                writerId: i9qt56rwe8qhl1bi2rwpus4l3nt0hulb
+        m: []
+        python_version: 3.10.13
+        t:
+            "1":
+                - 1
+                - 30
+                - 41
+                - 49
+                - 51
+            "2":
+                - 1
+                - 30
+                - 41
+                - 49
+                - 51
+            "3":
+                - 2
+                - 5
+                - 13
+                - 14
+                - 15
+                - 16
+                - 62
+            "4": 3.10.13
+            "5": 0.21.2
+            "10":
+                - 20
+            "12": 0.21.2
+            "13": linux-x86_64
+client_name:
+    value: EXP_076_N11_R3_E3_CLIENT_05
+experiment_id:
+    value: 76
+hostname:
+    value: fd-09
+local_epochs:
+    value: 3
+nodes:
+    value: 11
+partition_id:
+    value: 9
+server_rounds:
+    value: 3
+total_partitions:
+    value: 11

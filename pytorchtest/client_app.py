@@ -234,6 +234,9 @@ class FlowerClient(NumPyClient):
         
         print(f"🏋️ [{self.client_name}] Round {current_round} - Training...")
         
+        #Training status
+        # self.run.log({f"{self.client_name}_status": 1}, commit = False)
+
         set_weights(self.net, parameters)
         train_loss = train(
             self.net,
@@ -245,6 +248,9 @@ class FlowerClient(NumPyClient):
         # Log su wandb (solo metriche numeriche)
         self.run.log({"train_loss": train_loss}, commit=False)
         
+        #Idle status 
+        # self.run.log({f"{self.client_name}_status": 0})
+
         print(f"✅ Training Loss: {train_loss:.4f}")
         
         return (
@@ -258,6 +264,9 @@ class FlowerClient(NumPyClient):
         current_round = self.get_and_increment_round("eval")
         print(f"🧪 [{self.client_name}] Round {current_round} - Valutazione...")
         
+        #Evaluation status
+        # self.run.log({f"{self.client_name}_status": 2}, commit=False)
+
         set_weights(self.net, parameters)
         loss, accuracy = test(self.net, self.valloader, self.device)
         
@@ -267,6 +276,9 @@ class FlowerClient(NumPyClient):
             "evaluate_accuracy": accuracy,
         })
         
+        #Idle status 
+        # self.run.log({f"{self.client_name}_status": 0})
+
         print(f"✅ Loss: {loss:.4f}, Accuracy: {accuracy:.4f}")
         
         try:
@@ -276,7 +288,7 @@ class FlowerClient(NumPyClient):
             self.run.finish()
 
 def client_fn(context: Context):
-    """Funzione principale del client - ogni chiamata è un nuovo processo"""
+    """Funzione principale del client - ogni cshiamata è un nuovo processo"""
     
     print("🚀 Inizializzazione client Flower...")
     print("🧠 Caricamento modello e dati...")

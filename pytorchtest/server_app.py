@@ -47,6 +47,7 @@ class TimedFedAvg(FedAvg):
                 "nodes": safe_int(self.nodes),
                 "rounds": safe_int(self.rounds),
                 "epochs": safe_int(self.epochs),
+                "fraction-fit": self.fraction_fit,
                 "execution_time_seconds": round(execution_time, 2),
                 "execution_time_minutes": round(execution_time / 60, 2)
             }

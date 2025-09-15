@@ -1,40 +1,58 @@
 {
-    "EXP_059_N4_R3_E4": {
+    "EXP_196_N7_R5_E5": {
         "clients": {
             "fd-02": {
-                "client_name": "EXP_059_N4_R3_E4_CLIENT_01",
+                "client_name": "EXP_196_N7_R5_E5_CLIENT_01",
                 "hostname": "fd-02",
-                "registered_at": "2025-08-27T16:57:18.396587",
+                "registered_at": "2025-09-13T17:45:08.106458",
                 "client_number": 1
             },
-            "fd-01": {
-                "client_name": "EXP_059_N4_R3_E4_CLIENT_02",
-                "hostname": "fd-01",
-                "registered_at": "2025-08-27T16:57:18.448929",
+            "fd-04": {
+                "client_name": "EXP_196_N7_R5_E5_CLIENT_02",
+                "hostname": "fd-04",
+                "registered_at": "2025-09-13T17:45:08.155309",
                 "client_number": 2
             },
-            "fd-00": {
-                "client_name": "EXP_059_N4_R3_E4_CLIENT_03",
-                "hostname": "fd-00",
-                "registered_at": "2025-08-27T16:57:19.323208",
+            "fd-06": {
+                "client_name": "EXP_196_N7_R5_E5_CLIENT_03",
+                "hostname": "fd-06",
+                "registered_at": "2025-09-13T17:45:08.348541",
                 "client_number": 3
             },
-            "fd-03": {
-                "client_name": "EXP_059_N4_R3_E4_CLIENT_04",
-                "hostname": "fd-03",
-                "registered_at": "2025-08-27T16:57:19.516672",
+            "fd-05": {
+                "client_name": "EXP_196_N7_R5_E5_CLIENT_04",
+                "hostname": "fd-05",
+                "registered_at": "2025-09-13T17:45:08.521482",
                 "client_number": 4
+            },
+            "fd-01": {
+                "client_name": "EXP_196_N7_R5_E5_CLIENT_05",
+                "hostname": "fd-01",
+                "registered_at": "2025-09-13T17:45:09.175163",
+                "client_number": 5
+            },
+            "fd-03": {
+                "client_name": "EXP_196_N7_R5_E5_CLIENT_06",
+                "hostname": "fd-03",
+                "registered_at": "2025-09-13T17:45:09.270061",
+                "client_number": 6
+            },
+            "fd-00": {
+                "client_name": "EXP_196_N7_R5_E5_CLIENT_07",
+                "hostname": "fd-00",
+                "registered_at": "2025-09-13T17:45:09.993215",
+                "client_number": 7
             }
         },
         "experiment_info": {
-            "experiment_id": 59,
-            "group_name": "EXP_059_N4_R3_E4",
-            "nodes": "4",
-            "rounds": "3",
-            "epochs": "4",
-            "timestamp": "2025-08-27T16:57:06.900575",
-            "description": "Federated Learning: 4 nodi, 3 round, 4 epoche locali"
+            "experiment_id": 196,
+            "group_name": "EXP_196_N7_R5_E5",
+            "nodes": "7",
+            "rounds": "5",
+            "epochs": "5",
+            "timestamp": "2025-09-13T17:44:55.452490",
+            "description": "Federated Learning: 7 nodi, 5 round, 5 epoche locali"
         },
-        "created_at": "2025-08-27T16:57:18.396568"
+        "created_at": "2025-09-13T17:45:08.106427"
     }
 }

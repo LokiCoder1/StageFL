@@ -17,6 +17,8 @@ start:
 	fi
 	@echo "Starting container $(PROJECT_NAME)_server"
 	$(MAKE) run T=server
+
+	@sleep 15
 # @docker exec -it pytorch_project_server pip install wandb
 	@echo "Starting containers $(PROJECT_NAME)_client"
 	$(MAKE) ssh NODES=$(NODES) 
@@ -44,7 +46,7 @@ endif
 #NUM_PARTITIONS -> total nodes number
 ifeq ($(T),client)
 
-	@docker run -d --name $(PROJECT_NAME)_client -v $(shell pwd):/app --network=host --rm $(IMAGE_NAME) sh -c 'flower-supernode --insecure --superlink fd-coordinator:9092 --node-config "partition-id=$(PARTITION) num-partitions=$(NUM_PARTITIONS)" 2>&1 | tee client_output_$(PARTITION).log'
+	@docker run -d --name $(PROJECT_NAME)_client -v $(shell pwd):/app --network=host --rm $(IMAGE_NAME) sh -c 'flower-supernode --insecure --superlink fd-coordinator:9092 --node-config "partition-id=$(PARTITION) num-partitions=$(NUM_PARTITIONS)" --max-retries 30 --max-wait-time 600.0 2>&1 | tee client_output_$(PARTITION).log'
 endif
 
 
