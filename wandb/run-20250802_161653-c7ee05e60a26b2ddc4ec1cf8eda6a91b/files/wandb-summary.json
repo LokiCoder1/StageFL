@@ -1,1 +1,0 @@
-{"_timestamp":1.7541514459239476e+09,"_wandb":{"runtime":3611},"partition_id":0,"_runtime":3611.214302271,"_step":6,"train_loss":4.600110951137543,"evaluate_accuracy":0.4336,"client_name":"EXP_004_N2_R4_E3_CLIENT_01","evaluate_loss":1.5550478104573149}

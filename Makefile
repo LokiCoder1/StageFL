@@ -28,7 +28,7 @@ start:
 
 
 
-# to Build Docker image
+# to Build Docker   image
 build:
 	docker build -t $(IMAGE_NAME) .
 
