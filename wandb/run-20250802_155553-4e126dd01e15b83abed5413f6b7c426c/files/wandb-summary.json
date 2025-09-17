@@ -1,1 +1,0 @@
-{"train_loss":3.572045784187317,"client_name":"EXP_001_N2_R3_E2_CLIENT_01","evaluate_loss":1.7909181019303146,"_timestamp":1.754150156762485e+09,"evaluate_accuracy":0.306,"partition_id":0,"_step":3,"_wandb":{"runtime":253},"_runtime":252.993878321}
