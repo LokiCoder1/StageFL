@@ -1,3 +1,10 @@
+#packages
+pytorchtest/experiment_timings.json
+pytorchtest/experiment_log.json
+pytorchtest/rounds_tracker.json
+
+wandb/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
