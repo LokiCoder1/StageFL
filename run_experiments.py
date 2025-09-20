@@ -7,11 +7,10 @@ import argparse
 import json
 from datetime import datetime
 from pathlib import Path
-from timing_utils import load_last_timing
 
 # Percorso al file pyproject.toml e al file dei timings
 TOML_PATH = os.path.join("pytorchtest", "pyproject.toml")
-TIMINGS_FILE = Path("/mnt/shared/dcannizzaro/pytorchtest/pytorchtest/experiment_timings.json")
+TIMINGS_FILE = Path("pytorchtest/experiment_timings.json")
 
 def print_separator(char="=", length=80):
     print(char * length)
@@ -67,17 +66,40 @@ def update_toml(num_rounds, local_epochs, nodes, fraction):
     except Exception as e:
         print(f"❌ Errore aggiornando pyproject.toml: {e}")
         return False
+    
+def load_last_experiment():
+    try:
+        with TIMINGS_FILE.open("r") as f:
+            data = json.load(f)
+          
+            # Cerca la lista dei timings
+            if 'timings' in data:
+                timings = data['timings']
+                if timings:
+                    last_id = timings[-1]['experiment_id']
+                    return last_id
+            
+            print("⚠️ Nessun timing trovato")
+            return -1
+                
+    except Exception as e:
+        print(f"❌ Errore: {e}")
+        return -1
+    
 
-def wait_for_new_timing(last_id: int, timeout: int = 3600, check_interval: int = 5):
+def wait_for_new_experiment(last_id: int, timeout: int = 3600, check_interval: int = 5):
     """Aspetta che venga scritto un nuovo timing nel JSON"""
     start = time.time()
     while time.time() - start < timeout:
         try:
             with TIMINGS_FILE.open("r") as f:
                 data = json.load(f)
-            timings = data.get("timings", [])
-            if timings and timings[-1].get("experiment_id", -1) > last_id:
-                return True
+            if 'timings' in data:
+                timings = data['timings']
+                if timings:
+                    current_id = timings[-1]['experiment_id']
+                    if current_id > last_id:
+                        return True
         except Exception:
             pass
         time.sleep(check_interval)
@@ -145,15 +167,14 @@ def main():
                 os.environ["EXPERIMENT_NODES"] = str(nodes)
 
                 # Ricava l'ultimo id
-                last_timing = load_last_timing()
-                last_id = last_timing["experiment_id"] if last_timing else -1
-
+                last_experiment = load_last_experiment()
+                
                 if not run_command(f"make start NODES={nodes}"):
                     return
 
-                print_step("⏳ Aspetto che il nuovo timing venga scritto...")
-                if wait_for_new_timing(last_id):
-                    print("✅ Nuovo timing trovato, procedo con stop")
+                print_step("⏳ Aspetto che il nuovo esperimento venga scritto...")
+                if wait_for_new_experiment(last_experiment):
+                    print("✅ Nuovo esperimento trovato, procedo con stop")
                     time.sleep(10)  # Piccola pausa per sicurezza
                 else:
                     print("⚠️ Timeout, procedo comunque con stop")

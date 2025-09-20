@@ -65,7 +65,7 @@ stop:
 
 
 # clean Docker image
-clean: stop
+clean: 
 	docker rmi $(IMAGE_NAME)
 
 
