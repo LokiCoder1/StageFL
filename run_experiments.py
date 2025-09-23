@@ -87,7 +87,7 @@ def load_last_experiment():
         return -1
     
 
-def wait_for_new_experiment(last_id: int, timeout: int = 3600, check_interval: int = 5):
+def wait_for_new_experiment(last_id: int, timeout: int = 7200, check_interval: int = 5):
     """Aspetta che venga scritto un nuovo timing nel JSON"""
     start = time.time()
     while time.time() - start < timeout:

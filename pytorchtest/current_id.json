@@ -1,9 +1,9 @@
 {
-    "experiment_id": 201,
-    "group_name": "EXP_201_N2_R2_E1",
-    "nodes": "2",
-    "rounds": "2",
+    "experiment_id": 207,
+    "group_name": "EXP_207_N13_R40_E1",
+    "nodes": "13",
+    "rounds": "40",
     "epochs": "1",
-    "timestamp": "2025-09-17T10:43:17.329775",
-    "description": "Federated Learning: 2 nodi, 2 round, 1 epoche locali"
+    "timestamp": "2025-09-23T09:17:14.571859",
+    "description": "Federated Learning: 13 nodi, 40 round, 1 epoche locali"
 }
