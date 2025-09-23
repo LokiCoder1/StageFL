@@ -16,10 +16,6 @@ class TimedFedAvg(FedAvg):
         self.epochs = epochs
         self.start_time = None
         self.end_time = None
-        
-        # Initialize experiment metrics tracker
-        self.exp_tracker = get_experiment_tracker()
-        self.exp_tracker.start_experiment(experiment_id, group_name, nodes, rounds, epochs)
     
     def initialize_parameters(self, client_manager):
         """Chiamato all'inizio del training"""
@@ -32,18 +28,12 @@ class TimedFedAvg(FedAvg):
         """Chiamato alla fine di ogni round"""
         result = super().evaluate(server_round, parameters)
         
-        # Track round metrics if available
+        # Log round metrics if available
         if result is not None and len(result) >= 2:
             loss = result[0]
             metrics_dict = result[1] if len(result) > 1 else {}
             accuracy = metrics_dict.get("accuracy", 0.0)
-            
-            # Track this round in experiment metrics
-            self.exp_tracker.track_round(
-                round_num=server_round,
-                aggregated_loss=loss,
-                aggregated_accuracy=accuracy
-            )
+            print(f"📊 Round {server_round} - Loss: {loss:.4f}, Accuracy: {accuracy:.4f}")
         
         # Se è l'ultimo round, calcola il tempo totale
         if server_round >= int(self.rounds):
@@ -76,20 +66,13 @@ class TimedFedAvg(FedAvg):
             save_json_safe(timing_file, timings)
             
             print(f"⏱️  Training completato in: {execution_time:.1f}s ({execution_time/60:.1f} min)")
-            
-            # Finalize experiment metrics
-            self.exp_tracker.finalize_experiment()
-            
-            # Print comparison report
-            print("\n" + "="*70)
-            print(self.exp_tracker.print_comparison_report())
+            print(f"✅ Esperimento {self.group_name} completato!")
         
         return result
 from task import Net, get_weights
 import os
 import json
 from datetime import datetime
-from experiment_metrics import get_experiment_tracker
 
 # Percorsi ai file di configurazione
 GROUP_PATH = "pytorchtest/group_id.json"
