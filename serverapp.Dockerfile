@@ -1,4 +1,4 @@
-FROM fd-coordinator:5000/pytorch_image
+FROM damianocann/pytorch-flower-app:latest
 
 WORKDIR /app
 

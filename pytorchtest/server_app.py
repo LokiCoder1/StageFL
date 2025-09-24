@@ -5,7 +5,7 @@ from flwr.server import ServerApp, ServerAppComponents, ServerConfig
 from flwr.server.strategy import FedAvg
 
 class TimedFedAvg(FedAvg):
-    """FedAvg con tracking del tempo di esecuzione"""
+    """FedAvg con tracking del tempo di esecuzione e metriche avanzate"""
     
     def __init__(self, experiment_id, group_name, nodes, rounds, epochs, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -27,6 +27,13 @@ class TimedFedAvg(FedAvg):
     def evaluate(self, server_round, parameters):
         """Chiamato alla fine di ogni round"""
         result = super().evaluate(server_round, parameters)
+        
+        # Log round metrics if available
+        if result is not None and len(result) >= 2:
+            loss = result[0]
+            metrics_dict = result[1] if len(result) > 1 else {}
+            accuracy = metrics_dict.get("accuracy", 0.0)
+            print(f"📊 Round {server_round} - Loss: {loss:.4f}, Accuracy: {accuracy:.4f}")
         
         # Se è l'ultimo round, calcola il tempo totale
         if server_round >= int(self.rounds):
@@ -59,6 +66,7 @@ class TimedFedAvg(FedAvg):
             save_json_safe(timing_file, timings)
             
             print(f"⏱️  Training completato in: {execution_time:.1f}s ({execution_time/60:.1f} min)")
+            print(f"✅ Esperimento {self.group_name} completato!")
         
         return result
 from task import Net, get_weights
@@ -70,7 +78,7 @@ from datetime import datetime
 GROUP_PATH = "pytorchtest/group_id.json"
 CURRENT_PATH = "pytorchtest/current_id.json"
 CLIENT_PATH = "pytorchtest/client_id.json"
-EXPERIMENT_PATH = "pytorchtest/experiment_log.json"
+
 
 def load_json_safe(path, default=None):
     """Carica un file JSON in modo sicuro, gestendo file mancanti o corrotti"""
@@ -145,23 +153,6 @@ def save_current_experiment_info(experiment_info):
 def clear_client_registry():
     """Pulisce il registro dei client per un nuovo esperimento"""
     return save_json_safe(CLIENT_PATH, {})
-
-def log_experiment_start(experiment_info):
-    """Registra l'inizio di un nuovo esperimento nel log"""
-    log_data = load_json_safe(EXPERIMENT_PATH, {"experiments": []})
-    
-    experiment_entry = {
-        "experiment_id": experiment_info["experiment_id"],
-        "group_name": experiment_info["group_name"],
-        "nodes": experiment_info["nodes"],
-        "rounds": experiment_info["rounds"],
-        "epochs": experiment_info["epochs"],
-        "start_time": datetime.now().isoformat(),
-        "status": "running"
-    }
-    
-    log_data["experiments"].append(experiment_entry)
-    return save_json_safe(EXPERIMENT_PATH, log_data)
 
 def generate_experiment_group_name(nodes, rounds, epochs):
     """
@@ -250,9 +241,6 @@ def server_fn(context: Context):
     if not clear_client_registry():
         print("⚠️  Warning: Impossibile pulire il registro dei client")
     
-    # Log dell'inizio dell'esperimento
-    if not log_experiment_start(experiment_info):
-        print("⚠️  Warning: Impossibile loggare l'inizio dell'esperimento")
     
     print(f"✅ Server pronto per: {group_name}")
     

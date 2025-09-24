@@ -32,6 +32,17 @@ start:
 build:
 	docker build -t $(IMAGE_NAME) .
 
+# build and push to Docker Hub
+build-hub:
+	docker build -t damianocann/pytorch-flower-app:latest .
+
+# push to Docker Hub
+push-hub:
+	docker push damianocann/pytorch-flower-app:latest
+
+# complete workflow: build + push to Docker Hub
+deploy-hub: build-hub push-hub
+
 # background Docker container run
 # T=server for server container activation
 # T=client for client container activation (it will need further variables)
