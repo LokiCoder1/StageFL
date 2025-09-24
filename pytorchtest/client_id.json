@@ -1,94 +1,94 @@
 {
-    "EXP_207_N13_R40_E1": {
+    "EXP_208_N13_R30_E2": {
         "clients": {
             "fd-09": {
-                "client_name": "EXP_207_N13_R40_E1_CLIENT_01",
+                "client_name": "EXP_208_N13_R30_E2_CLIENT_01",
                 "hostname": "fd-09",
-                "registered_at": "2025-09-23T09:17:27.709761",
+                "registered_at": "2025-09-23T15:48:51.573351",
                 "client_number": 1
             },
-            "fd-10": {
-                "client_name": "EXP_207_N13_R40_E1_CLIENT_02",
-                "hostname": "fd-10",
-                "registered_at": "2025-09-23T09:17:27.751275",
+            "fd-06": {
+                "client_name": "EXP_208_N13_R30_E2_CLIENT_02",
+                "hostname": "fd-06",
+                "registered_at": "2025-09-23T15:48:51.666345",
                 "client_number": 2
             },
-            "fd-07": {
-                "client_name": "EXP_207_N13_R40_E1_CLIENT_03",
-                "hostname": "fd-07",
-                "registered_at": "2025-09-23T09:17:27.886391",
+            "fd-00": {
+                "client_name": "EXP_208_N13_R30_E2_CLIENT_03",
+                "hostname": "fd-00",
+                "registered_at": "2025-09-23T15:48:51.730510",
                 "client_number": 3
             },
-            "fd-03": {
-                "client_name": "EXP_207_N13_R40_E1_CLIENT_04",
-                "hostname": "fd-03",
-                "registered_at": "2025-09-23T09:17:28.065061",
+            "fd-02": {
+                "client_name": "EXP_208_N13_R30_E2_CLIENT_04",
+                "hostname": "fd-02",
+                "registered_at": "2025-09-23T15:48:51.809892",
                 "client_number": 4
             },
-            "fd-01": {
-                "client_name": "EXP_207_N13_R40_E1_CLIENT_05",
-                "hostname": "fd-01",
-                "registered_at": "2025-09-23T09:17:28.278330",
+            "fd-03": {
+                "client_name": "EXP_208_N13_R30_E2_CLIENT_05",
+                "hostname": "fd-03",
+                "registered_at": "2025-09-23T15:48:51.979060",
                 "client_number": 5
             },
             "fd-11": {
-                "client_name": "EXP_207_N13_R40_E1_CLIENT_06",
+                "client_name": "EXP_208_N13_R30_E2_CLIENT_06",
                 "hostname": "fd-11",
-                "registered_at": "2025-09-23T09:17:28.285142",
+                "registered_at": "2025-09-23T15:48:52.181928",
                 "client_number": 6
             },
-            "fd-12": {
-                "client_name": "EXP_207_N13_R40_E1_CLIENT_07",
-                "hostname": "fd-12",
-                "registered_at": "2025-09-23T09:17:28.454297",
+            "fd-05": {
+                "client_name": "EXP_208_N13_R30_E2_CLIENT_07",
+                "hostname": "fd-05",
+                "registered_at": "2025-09-23T15:48:52.440339",
                 "client_number": 7
             },
-            "fd-00": {
-                "client_name": "EXP_207_N13_R40_E1_CLIENT_08",
-                "hostname": "fd-00",
-                "registered_at": "2025-09-23T09:17:28.903047",
+            "fd-01": {
+                "client_name": "EXP_208_N13_R30_E2_CLIENT_08",
+                "hostname": "fd-01",
+                "registered_at": "2025-09-23T15:48:52.504951",
                 "client_number": 8
             },
-            "fd-05": {
-                "client_name": "EXP_207_N13_R40_E1_CLIENT_09",
-                "hostname": "fd-05",
-                "registered_at": "2025-09-23T09:17:29.081317",
+            "fd-07": {
+                "client_name": "EXP_208_N13_R30_E2_CLIENT_09",
+                "hostname": "fd-07",
+                "registered_at": "2025-09-23T15:48:52.922203",
                 "client_number": 9
             },
-            "fd-02": {
-                "client_name": "EXP_207_N13_R40_E1_CLIENT_10",
-                "hostname": "fd-02",
-                "registered_at": "2025-09-23T09:17:29.478151",
+            "fd-10": {
+                "client_name": "EXP_208_N13_R30_E2_CLIENT_10",
+                "hostname": "fd-10",
+                "registered_at": "2025-09-23T15:48:52.977332",
                 "client_number": 10
             },
-            "fd-06": {
-                "client_name": "EXP_207_N13_R40_E1_CLIENT_11",
-                "hostname": "fd-06",
-                "registered_at": "2025-09-23T09:18:52.438949",
+            "fd-08": {
+                "client_name": "EXP_208_N13_R30_E2_CLIENT_11",
+                "hostname": "fd-08",
+                "registered_at": "2025-09-23T15:52:56.684699",
                 "client_number": 11
             },
-            "fd-08": {
-                "client_name": "EXP_207_N13_R40_E1_CLIENT_12",
-                "hostname": "fd-08",
-                "registered_at": "2025-09-23T09:18:52.841889",
+            "fd-12": {
+                "client_name": "EXP_208_N13_R30_E2_CLIENT_12",
+                "hostname": "fd-12",
+                "registered_at": "2025-09-23T15:52:57.221912",
                 "client_number": 12
             },
             "fd-04": {
-                "client_name": "EXP_207_N13_R40_E1_CLIENT_13",
+                "client_name": "EXP_208_N13_R30_E2_CLIENT_13",
                 "hostname": "fd-04",
-                "registered_at": "2025-09-23T09:18:54.416596",
+                "registered_at": "2025-09-23T15:52:57.321682",
                 "client_number": 13
             }
         },
         "experiment_info": {
-            "experiment_id": 207,
-            "group_name": "EXP_207_N13_R40_E1",
+            "experiment_id": 208,
+            "group_name": "EXP_208_N13_R30_E2",
             "nodes": "13",
-            "rounds": "40",
-            "epochs": "1",
-            "timestamp": "2025-09-23T09:17:14.571859",
-            "description": "Federated Learning: 13 nodi, 40 round, 1 epoche locali"
+            "rounds": "30",
+            "epochs": "2",
+            "timestamp": "2025-09-23T15:48:38.254902",
+            "description": "Federated Learning: 13 nodi, 30 round, 2 epoche locali"
         },
-        "created_at": "2025-09-23T09:17:27.709732"
+        "created_at": "2025-09-23T15:48:51.573322"
     }
 }
