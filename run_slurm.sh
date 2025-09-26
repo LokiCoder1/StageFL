@@ -1,51 +1,43 @@
 #!/bin/bash
 #SBATCH --job-name=federated-learning
-#SBATCH --time=04:00:00
+#SBATCH --time=00:30:00
 #SBATCH --nodes=4
+#SBATCH --partition=broadwell
+#SBATCH --exclusive
+#SBATCH --ntasks=4
 #SBATCH --ntasks-per-node=1
 
-# Configurazione
-SHARED_DIR="~/Stage/StageFL"  
-IMAGE="docker://damianocann/pytorch-flower-app:latest"
-SERVER_NODE=$SLURM_NODELIST[0]  # Primo nodo come server
+SHARED_DIR="$HOME/Stage/StageFL"
 NUM_CLIENTS=3
 
-# Avvia il server sul primo nodo
+# Ottieni la lista dei nodi
+NODES=($(scontrol show hostnames $SLURM_JOB_NODELIST))
+SERVER_NODE=${NODES[0]}
+
+echo "Nodes allocated: ${NODES[@]}"
+echo "Server node: $SERVER_NODE"
+
+# Avvia il server FL su nodo specifico
 echo "Starting FL server on $SERVER_NODE..."
-srun --ntasks 1 --nodes 1 -w $SERVER_NODE apptainer exec \
-    --bind $SHARED_DIR:/app \
-    --bind $SHARED_DIR/pytorchtest:/app/pytorchtest \
-    $IMAGE \
-    flower-superlink --insecure &
+srun --nodes=1 --ntasks=1 --nodelist=$SERVER_NODE \
+    bash -c "cd $SHARED_DIR && occam-run -n $SERVER_NODE damianocann/pytorch-flower-app flower-superlink --insecure" &
 
-# Attendi che il server sia pronto
-sleep 15
+sleep 20
 
-# Avvia i client sugli altri nodi
+# Avvia i client FL
 for i in $(seq 0 $((NUM_CLIENTS-1))); do
-    NODE_IDX=$((i+1))
-    CLIENT_NODE=$SLURM_NODELIST[$NODE_IDX]
-    
+    CLIENT_NODE=${NODES[$((i+1))]}
     echo "Starting client $i on $CLIENT_NODE..."
-    srun --ntasks 1 --nodes 1 -w $CLIENT_NODE apptainer exec \
-        --bind $SHARED_DIR:/app \
-        --bind $SHARED_DIR/pytorchtest:/app/pytorchtest \
-        $IMAGE \
-        flower-supernode --insecure --superlink $SERVER_NODE:9092 \
-        --node-config "partition-id=$i num-partitions=$NUM_CLIENTS" &
+    srun --nodes=1 --ntasks=1 --nodelist=$CLIENT_NODE \
+        bash -c "cd $SHARED_DIR && occam-run -n $CLIENT_NODE damianocann/pytorch-flower-app flower-supernode --insecure --superlink $SERVER_NODE:9092 --node-config 'partition-id=$i num-partitions=$NUM_CLIENTS'" &
 done
 
-# Attendi che tutti siano pronti
+# Attendi che tutti siano connessi
 sleep 30
 
 # Avvia il training
-echo "Starting training..."
-srun --ntasks 1 --nodes 1 -w $SERVER_NODE apptainer exec \
-    --bind $SHARED_DIR:/app \
-    $IMAGE \
-    sh -c "cd /app/pytorchtest && flwr run"
-
-# Aspetta che tutti i job finiscano
-wait
+echo "Starting training on $SERVER_NODE..."
+srun --nodes=1 --ntasks=1 --nodelist=$SERVER_NODE \
+    bash -c "cd $SHARED_DIR && occam-run -n $SERVER_NODE damianocann/pytorch-flower-app sh -c 'cd /app/pytorchtest && flwr run'"
 
 echo "Federated Learning completed!"
