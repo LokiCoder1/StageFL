@@ -62,6 +62,7 @@ def update_toml(num_rounds, local_epochs, nodes, fraction):
             f.writelines(new_lines)
         
         print("✅ File TOML aggiornato")
+        print("[DEBUG] timing_file path:", TIMINGS_FILE.resolve())
         return True
     except Exception as e:
         print(f"❌ Errore aggiornando pyproject.toml: {e}")
@@ -77,6 +78,7 @@ def load_last_experiment():
                 timings = data['timings']
                 if timings:
                     last_id = timings[-1]['experiment_id']
+                    print(f"ℹ️ Ultimo experiment_id trovato: {last_id}")
                     return last_id
             
             print("⚠️ Nessun timing trovato")
