@@ -1,5 +1,6 @@
 """pytorchtest: A Flower / PyTorch app."""
 
+from multiprocessing import context
 import torch
 import wandb
 import os
@@ -288,7 +289,7 @@ class FlowerClient(NumPyClient):
             self.run.finish()
 
 def client_fn(context: Context):
-    """Funzione principale del client - ogni cshiamata è un nuovo processo"""
+    """Funzione principale del client - ogni chiamata è un nuovo processo"""
     
     print("🚀 Inizializzazione client Flower...")
     print("🧠 Caricamento modello e dati...")
@@ -297,8 +298,23 @@ def client_fn(context: Context):
     net = Net()
     partition_id = context.node_config["partition-id"]
     num_partitions = context.node_config["num-partitions"]
-    trainloader, valloader = load_data(partition_id, num_partitions)
     local_epochs = context.run_config["local-epochs"]
+    
+    # Leggi parametri di scaling dal config
+    scaling_mode = context.run_config.get("scaling-mode", "strong")
+    samples_per_client = context.run_config.get("samples-per-client", 5000)
+    
+    print(f"⚡ Scaling mode: {scaling_mode}")
+    if scaling_mode == "weak":
+        print(f"📦 Samples per client: {samples_per_client}")
+    
+    # Carica dati con scaling configurato
+    trainloader, valloader = load_data(
+        partition_id, 
+        num_partitions,
+        scaling_mode=scaling_mode,
+        samples_per_client=samples_per_client
+    )
     
     print(f"📊 Partition: {partition_id}/{num_partitions}, Epoche: {local_epochs}")
     

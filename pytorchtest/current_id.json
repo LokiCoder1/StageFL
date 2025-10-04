@@ -1,9 +1,11 @@
 {
-    "experiment_id": 210,
-    "group_name": "EXP_210_N6_R5_E2",
-    "nodes": "6",
-    "rounds": "5",
-    "epochs": "2",
-    "timestamp": "2025-09-27T10:50:33.887163",
-    "description": "Federated Learning: 6 nodi, 5 round, 2 epoche locali"
+    "experiment_id": 237,
+    "group_name": "EXP_237_N3_R2_E3_WEAK1000",
+    "nodes": "3",
+    "rounds": "2",
+    "epochs": "3",
+    "scaling_mode": "weak",
+    "samples_per_client": 1000,
+    "timestamp": "2025-10-04T11:58:21.169779",
+    "description": "Federated Learning: 3 nodi, 2 round, 3 epoche, weak scaling"
 }

@@ -1,52 +1,36 @@
 {
-    "EXP_210_N6_R5_E2": {
+    "EXP_237_N3_R2_E3_WEAK1000": {
         "clients": {
-            "fd-03": {
-                "client_name": "EXP_210_N6_R5_E2_CLIENT_01",
-                "hostname": "fd-03",
-                "registered_at": "2025-09-27T10:50:46.241369",
+            "fd-00": {
+                "client_name": "EXP_237_N3_R2_E3_WEAK1000_CLIENT_01",
+                "hostname": "fd-00",
+                "registered_at": "2025-10-04T11:58:34.191224",
                 "client_number": 1
             },
-            "fd-00": {
-                "client_name": "EXP_210_N6_R5_E2_CLIENT_02",
-                "hostname": "fd-00",
-                "registered_at": "2025-09-27T10:50:46.362865",
+            "fd-02": {
+                "client_name": "EXP_237_N3_R2_E3_WEAK1000_CLIENT_02",
+                "hostname": "fd-02",
+                "registered_at": "2025-10-04T11:58:34.764430",
                 "client_number": 2
             },
-            "fd-05": {
-                "client_name": "EXP_210_N6_R5_E2_CLIENT_03",
-                "hostname": "fd-05",
-                "registered_at": "2025-09-27T10:50:46.375945",
-                "client_number": 3
-            },
-            "fd-02": {
-                "client_name": "EXP_210_N6_R5_E2_CLIENT_04",
-                "hostname": "fd-02",
-                "registered_at": "2025-09-27T10:50:46.729619",
-                "client_number": 4
-            },
-            "fd-04": {
-                "client_name": "EXP_210_N6_R5_E2_CLIENT_05",
-                "hostname": "fd-04",
-                "registered_at": "2025-09-27T10:50:47.342205",
-                "client_number": 5
-            },
             "fd-01": {
-                "client_name": "EXP_210_N6_R5_E2_CLIENT_06",
+                "client_name": "EXP_237_N3_R2_E3_WEAK1000_CLIENT_03",
                 "hostname": "fd-01",
-                "registered_at": "2025-09-27T10:50:47.595408",
-                "client_number": 6
+                "registered_at": "2025-10-04T11:58:54.605090",
+                "client_number": 3
             }
         },
         "experiment_info": {
-            "experiment_id": 210,
-            "group_name": "EXP_210_N6_R5_E2",
-            "nodes": "6",
-            "rounds": "5",
-            "epochs": "2",
-            "timestamp": "2025-09-27T10:50:33.887163",
-            "description": "Federated Learning: 6 nodi, 5 round, 2 epoche locali"
+            "experiment_id": 237,
+            "group_name": "EXP_237_N3_R2_E3_WEAK1000",
+            "nodes": "3",
+            "rounds": "2",
+            "epochs": "3",
+            "scaling_mode": "weak",
+            "samples_per_client": 1000,
+            "timestamp": "2025-10-04T11:58:21.169779",
+            "description": "Federated Learning: 3 nodi, 2 round, 3 epoche, weak scaling"
         },
-        "created_at": "2025-09-27T10:50:46.241336"
+        "created_at": "2025-10-04T11:58:34.191199"
     }
 }

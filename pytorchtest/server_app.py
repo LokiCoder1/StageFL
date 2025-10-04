@@ -69,6 +69,8 @@ class TimedFedAvg(FedAvg):
             print(f"✅ Esperimento {self.group_name} completato!")
         
         return result
+
+
 from task import Net, get_weights
 import os
 import json
@@ -91,6 +93,7 @@ def load_json_safe(path, default=None):
         print(f"⚠️  Warning: File {path} corrotto o non leggibile, uso default")
         return default if default is not None else {}
 
+
 def save_json_safe(path, data):
     """Salva un file JSON in modo sicuro"""
     try:
@@ -101,6 +104,7 @@ def save_json_safe(path, data):
         print(f"❌ Errore nel salvare {path}: {e}")
         return False
 
+
 def get_experiment_metadata():
     """
     Estrae i metadati dell'esperimento dal file pyproject.toml
@@ -109,7 +113,9 @@ def get_experiment_metadata():
     metadata = {
         "nodes": "unknown",
         "rounds": "unknown", 
-        "epochs": "unknown"
+        "epochs": "unknown",
+        "scaling_mode": "strong",
+        "samples_per_client": 5000
     }
     
     if not os.path.exists(toml_path):
@@ -129,16 +135,24 @@ def get_experiment_metadata():
                 metadata["epochs"] = line.split("=")[1].strip()
             elif line.startswith("num-nodes"):
                 metadata["nodes"] = line.split("=")[1].strip()
+            elif line.startswith("scaling-mode"):
+                # Rimuovi le virgolette dalla stringa
+                value = line.split("=")[1].strip().strip('"').strip("'")
+                metadata["scaling_mode"] = value
+            elif line.startswith("samples-per-client"):
+                metadata["samples_per_client"] = int(line.split("=")[1].strip())
                 
     except Exception as e:
         print(f"⚠️  Warning: Errore nel leggere {toml_path}: {e}")
     
     return metadata
 
+
 def load_last_experiment_id():
     """Carica l'ultimo ID esperimento usato"""
     data = load_json_safe(GROUP_PATH, {"last_experiment_id": 0})
     return data.get("last_experiment_id", 0)
+
 
 def save_last_experiment_id(experiment_id):
     """Salva l'ultimo ID esperimento"""
@@ -146,15 +160,18 @@ def save_last_experiment_id(experiment_id):
     data["last_experiment_id"] = experiment_id
     return save_json_safe(GROUP_PATH, data)
 
+
 def save_current_experiment_info(experiment_info):
     """Salva le informazioni dell'esperimento corrente"""
     return save_json_safe(CURRENT_PATH, experiment_info)
+
 
 def clear_client_registry():
     """Pulisce il registro dei client per un nuovo esperimento"""
     return save_json_safe(CLIENT_PATH, {})
 
-def generate_experiment_group_name(nodes, rounds, epochs):
+
+def generate_experiment_group_name(nodes, rounds, epochs, scaling_mode="strong", samples=None):
     """
     Genera un nome di gruppo comprensibile e strutturato per l'esperimento
     
@@ -162,6 +179,8 @@ def generate_experiment_group_name(nodes, rounds, epochs):
         nodes: Numero di nodi partecipanti
         rounds: Numero di round del server
         epochs: Numero di epoche locali
+        scaling_mode: Modalità di scaling (strong/weak)
+        samples: Campioni per client (solo per weak scaling)
         
     Returns:
         tuple: (experiment_id, group_name, experiment_info)
@@ -172,8 +191,12 @@ def generate_experiment_group_name(nodes, rounds, epochs):
     save_last_experiment_id(experiment_id)
     
     # Genera un nome di gruppo descrittivo
-    # Formato: EXP_{ID:03d}_N{nodes}_R{rounds}_E{epochs}
-    group_name = f"EXP_{experiment_id:03d}_N{nodes}_R{rounds}_E{epochs}"
+    # Formato: EXP_{ID:03d}_N{nodes}_R{rounds}_E{epochs}_S{scaling}
+    scaling_suffix = f"_{scaling_mode.upper()}"
+    if scaling_mode == "weak" and samples:
+        scaling_suffix += f"{samples}"
+    
+    group_name = f"EXP_{experiment_id:03d}_N{nodes}_R{rounds}_E{epochs}{scaling_suffix}"
     
     # Informazioni complete dell'esperimento
     experiment_info = {
@@ -182,14 +205,20 @@ def generate_experiment_group_name(nodes, rounds, epochs):
         "nodes": nodes,
         "rounds": rounds,
         "epochs": epochs,
+        "scaling_mode": scaling_mode,
+        "samples_per_client": samples if samples else "N/A",
         "timestamp": datetime.now().isoformat(),
-        "description": f"Federated Learning: {nodes} nodi, {rounds} round, {epochs} epoche locali"
+        "description": f"Federated Learning: {nodes} nodi, {rounds} round, {epochs} epoche, {scaling_mode} scaling"
     }
     
     print(f"🚀 Nuovo esperimento: {group_name}")
     print(f"   📊 Configurazione: {nodes} nodi, {rounds} round, {epochs} epoche")
+    print(f"   ⚡ Scaling: {scaling_mode}")
+    if scaling_mode == "weak" and samples:
+        print(f"   📦 Campioni/client: {samples}")
     
     return experiment_id, group_name, experiment_info
+
 
 def server_fn(context: Context):
     """Funzione principale del server con gestione migliorata degli esperimenti"""
@@ -206,8 +235,13 @@ def server_fn(context: Context):
     nodes = metadata["nodes"]
     rounds = str(num_rounds)
     epochs = str(local_epochs)
+    scaling_mode = metadata.get("scaling_mode", "strong")
+    samples_per_client = metadata.get("samples_per_client", 5000)
     
     print(f"📋 Server: {nodes} nodi, {rounds} round, {epochs} epoche, fraction: {fraction_fit}")
+    print(f"⚡ Scaling mode: {scaling_mode}")
+    if scaling_mode == "weak":
+        print(f"📦 Samples per client: {samples_per_client}")
     
     # Inizializzazione modello
     print("🧠 Inizializzazione del modello...")
@@ -216,7 +250,8 @@ def server_fn(context: Context):
     
     # Generazione e gestione del gruppo esperimento
     experiment_id, group_name, experiment_info = generate_experiment_group_name(
-        nodes, rounds, epochs
+        nodes, rounds, epochs, scaling_mode, 
+        samples_per_client if scaling_mode == "weak" else None
     )
     
     # Strategia federata con timing
@@ -241,10 +276,10 @@ def server_fn(context: Context):
     if not clear_client_registry():
         print("⚠️  Warning: Impossibile pulire il registro dei client")
     
-    
     print(f"✅ Server pronto per: {group_name}")
     
     return ServerAppComponents(strategy=strategy, config=config)
+
 
 # Istanza dell'app
 app = ServerApp(server_fn=server_fn)
